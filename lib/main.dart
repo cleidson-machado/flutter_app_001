@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:my_view_app_001/views/daycare_index_view.dart';
+// import 'package:my_view_app_001/views/daycare_index_view.dart';
+import 'package:my_view_app_001/views/testcode/elevated_button.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyAppBackup());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyAppBackup extends StatelessWidget {
+  const MyAppBackup({super.key});
 
   
-@override
+  @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: DaycareIndexView()
-        ),
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      // home: const DaycareIndexView(),
+      home: const ElevatedButtonExampleApp(),
     );
   }
 }
+
+
+
 
