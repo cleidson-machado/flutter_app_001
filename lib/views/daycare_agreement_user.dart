@@ -1,12 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:my_view_app_001/Components/button_default_a.dart';
 import 'package:my_view_app_001/Components/colours_library.dart';
+import 'package:my_view_app_001/views/daycare_index.dart';
 
-class DaycareIndexViewUser extends StatelessWidget {
-  const DaycareIndexViewUser({super.key});
+class DaycareAgreement extends StatefulWidget {
+  const DaycareAgreement({super.key});
 
+  @override
+  State<DaycareAgreement> createState() => _DaycareAgreementState();
+}
+
+class _DaycareAgreementState extends State<DaycareAgreement> {
+  bool? _isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareIndexView()));
+          },
+        ),
+      ),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -21,7 +36,7 @@ class DaycareIndexViewUser extends StatelessWidget {
               const SizedBox(height: 2),
                   Container(
                     padding: const EdgeInsets.all(16.0),
-                    height: 450.0, // Fixed height for the scrollable area
+                    height: 360.0, // Fixed height for the scrollable area
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white, width: 1.0),
                       borderRadius: BorderRadius.circular(8.0),
@@ -42,13 +57,29 @@ class DaycareIndexViewUser extends StatelessWidget {
                       ),
                     ),
                   ),
-              const SizedBox(height: 150),
+                  CheckboxListTile(
+                    title: const Text('Aceito TODOS os Termos e Condições!', style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                    value: _isChecked, 
+                    onChanged: (bool? newValue){
+                    setState(() {
+                      _isChecked = newValue;
+                    });
+                  },
+                  subtitle: const Text('Lembre-se a sua aceitação é irrevogável'),
+                  controlAffinity: ListTileControlAffinity.leading,
+                  ),
+                  ButtonDefaultA(
+                    label: 'CONFIRMAR O CADASTRO',
+                    press: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
+                    },
+                  ),
+              const SizedBox(height: 5),
               Image.asset(
                 "assets/images/LogoGovernoPTDefault.png",
                 fit: BoxFit.contain,
                 width: 270,
               ),
-              const SizedBox(height: 30),
             ],
           ),
         ),

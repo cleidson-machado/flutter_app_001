@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_view_app_001/Components/button_default_a.dart';
-import 'package:my_view_app_001/views/daycare_index_view_user.dart';
+import 'package:my_view_app_001/views/daycare_agreement_user.dart';
 
 class DaycareIndexView extends StatelessWidget {
   const DaycareIndexView({super.key});
@@ -25,7 +25,7 @@ class DaycareIndexView extends StatelessWidget {
                   ButtonDefaultA(
                     label: 'ENTRAR',
                     press: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareIndexViewUser()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
                     },
                   ),
                   const SizedBox(height: 45),

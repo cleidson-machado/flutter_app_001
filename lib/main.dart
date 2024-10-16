@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_view_app_001/views/daycare_index_view.dart';
+import 'package:my_view_app_001/views/daycare_index.dart';
 
 void main() {
   runApp(const MyDaycareApp());
