@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:my_view_app_001/views/daycare_index_view.dart';
 
 void main() {
-  runApp(const MyAppBackup());
+  runApp(const MyDaycareApp());
 }
 
-class MyAppBackup extends StatelessWidget {
-  const MyAppBackup({super.key});
+class MyDaycareApp extends StatelessWidget {
+  const MyDaycareApp({super.key});
 
   
   @override

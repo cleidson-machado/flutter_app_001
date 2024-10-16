@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// Flutter code sample for [ElevatedButton].
-
-void main() => runApp(const ElevatedButtonExampleApp());
+void main() {
+  runApp(const ElevatedButtonExampleApp());
+}
 
 class ElevatedButtonExampleApp extends StatelessWidget {
   const ElevatedButtonExampleApp({super.key});
