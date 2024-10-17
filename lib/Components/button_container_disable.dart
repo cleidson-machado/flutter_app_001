@@ -14,7 +14,7 @@ class ButtonContainerDisable extends StatelessWidget {
       width: size.width *.9,
       height: 55,
       decoration: BoxDecoration(
-        color: buttonDisableColor,
+        color: defaultGreenButtonColor,
         borderRadius: BorderRadius.circular(8)
       ),
 

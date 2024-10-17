@@ -14,7 +14,7 @@ class ButtonContainerEnable extends StatelessWidget {
       width: size.width *.9,
       height: 55,
       decoration: BoxDecoration(
-        color: buttonEnableColor,
+        color: defaultGreenButtonColor,
         borderRadius: BorderRadius.circular(8)
       ),
 

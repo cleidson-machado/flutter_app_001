@@ -30,7 +30,7 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
               const SizedBox(height: 20),
               const Text(
                 "TERMOS E CONDIÇÕES DO SERVIÇO",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: buttonEnableColor),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: defaultGreenButtonColor),
               ),
               const SizedBox(height: 2),
                   Container(
@@ -70,7 +70,7 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
           const SizedBox(height: 15),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: buttonEnableColor
+                          backgroundColor: defaultGreenButtonColor
                         ),
                       onPressed: _isChecked ? () {
                         Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
