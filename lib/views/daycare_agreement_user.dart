@@ -68,7 +68,7 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
                   subtitle: const Text('Lembre-se a sua aceitação é irrevogável'),
                   controlAffinity: ListTileControlAffinity.leading,
                   ),
-                  ButtonDefaultA(
+                  ButtonContainerElementA(
                     label: 'CONFIRMAR O CADASTRO',
                     press: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
