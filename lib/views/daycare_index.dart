@@ -22,7 +22,7 @@ class DaycareIndexView extends StatelessWidget {
                   Image.asset("assets/images/LogoLegacyRebuild.png", fit: BoxFit.contain, width:  300),
                   const Text("sistema para busca de vagas", style: TextStyle( fontSize: 15, color: Colors.blueGrey),),
                   // const SizedBox(height: 60),
-                  ButtonContainerDisable(
+                  ButtonContainerEnable(
                     label: 'ENTRAR',
                     press: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));

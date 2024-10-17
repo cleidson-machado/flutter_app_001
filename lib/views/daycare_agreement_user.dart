@@ -70,9 +70,7 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
                   ),
                   ButtonContainerDisable(
                     label: 'CONFIRMAR O CADASTRO',
-                    press: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
-                    },
+                    press: (){}, //NO ACTIONS
                   ),
               const SizedBox(height: 5),
               Image.asset(
