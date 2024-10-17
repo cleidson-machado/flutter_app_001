@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_view_app_001/Components/button_container_element_a.dart';
+import 'package:my_view_app_001/Components/button_container_enable.dart';
 import 'package:my_view_app_001/views/daycare_agreement_user.dart';
 
 class DaycareIndexView extends StatelessWidget {
@@ -22,7 +22,7 @@ class DaycareIndexView extends StatelessWidget {
                   Image.asset("assets/images/LogoLegacyRebuild.png", fit: BoxFit.contain, width:  300),
                   const Text("sistema para busca de vagas", style: TextStyle( fontSize: 15, color: Colors.blueGrey),),
                   // const SizedBox(height: 60),
-                  ButtonContainerElementA(
+                  ButtonContainerDisable(
                     label: 'ENTRAR',
                     press: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));

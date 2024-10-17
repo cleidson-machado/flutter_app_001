@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_view_app_001/Components/button_container_element_a.dart';
+import 'package:my_view_app_001/Components/button_container_disable.dart';
 import 'package:my_view_app_001/Components/colours_library.dart';
 import 'package:my_view_app_001/views/daycare_index.dart';
 
@@ -68,7 +68,7 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
                   subtitle: const Text('Lembre-se a sua aceitação é irrevogável'),
                   controlAffinity: ListTileControlAffinity.leading,
                   ),
-                  ButtonContainerElementA(
+                  ButtonContainerDisable(
                     label: 'CONFIRMAR O CADASTRO',
                     press: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
