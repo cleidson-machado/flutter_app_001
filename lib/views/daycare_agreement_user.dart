@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_view_app_001/Components/button_container_disable.dart';
 import 'package:my_view_app_001/Components/colours_library.dart';
 import 'package:my_view_app_001/views/daycare_index.dart';
 
@@ -11,7 +10,7 @@ class DaycareAgreement extends StatefulWidget {
 }
 
 class _DaycareAgreementState extends State<DaycareAgreement> {
-  bool? _isChecked = false;
+  bool _isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,17 +61,23 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
                     value: _isChecked, 
                     onChanged: (bool? newValue){
                     setState(() {
-                      _isChecked = newValue;
+                      _isChecked = newValue ?? false;
                     });
                   },
                   subtitle: const Text('Lembre-se a sua aceitação é irrevogável'),
                   controlAffinity: ListTileControlAffinity.leading,
                   ),
-                  ButtonContainerDisable(
-                    label: 'CONFIRMAR O CADASTRO',
-                    press: (){}, //NO ACTIONS
-                  ),
-              const SizedBox(height: 5),
+          const SizedBox(height: 15),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: buttonEnableColor
+                        ),
+                      onPressed: _isChecked ? () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
+                      } : null, // Button is disabled when isChecked is false
+                      child: const Text('CONFIRMAR O CADASTRO', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
+                    ), 
+          const SizedBox(height: 40),
               Image.asset(
                 "assets/images/LogoGovernoPTDefault.png",
                 fit: BoxFit.contain,
