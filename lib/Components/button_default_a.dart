@@ -14,7 +14,7 @@ class ButtonDefaultA extends StatelessWidget {
       width: size.width *.9,
       height: 55,
       decoration: BoxDecoration(
-        color: primaryColor,
+        color: buttonEnableColor,
         borderRadius: BorderRadius.circular(8)
       ),
 

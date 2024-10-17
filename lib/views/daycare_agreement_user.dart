@@ -31,7 +31,7 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
               const SizedBox(height: 20),
               const Text(
                 "TERMOS E CONDIÇÕES DO SERVIÇO",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: primaryColor),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: buttonEnableColor),
               ),
               const SizedBox(height: 2),
                   Container(
