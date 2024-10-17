@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_view_app_001/Components/colours_library.dart';
 
-class ButtonDefaultA extends StatelessWidget {
+class ButtonContainerElementA extends StatelessWidget {
   final String label;
   final VoidCallback press;
-  const ButtonDefaultA({super.key, required this.label, required this.press});
+  const ButtonContainerElementA({super.key, required this.label, required this.press});
 
   @override
   Widget build(BuildContext context) {
