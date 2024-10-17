@@ -68,16 +68,24 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
                   controlAffinity: ListTileControlAffinity.leading,
                   ),
           const SizedBox(height: 15),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: defaultGreenButtonColor
+                   SizedBox(
+                        width: 355,
+                        height: 50, 
+                  child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: defaultGreenButtonColor,
+                          shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10), // Set the corner radius
                         ),
-                      onPressed: _isChecked ? () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
-                      } : null, // Button is disabled when isChecked is false
-                      child: const Text('CONFIRMAR O CADASTRO', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
-                    ), 
-          const SizedBox(height: 40),
+                        ),
+                        onPressed: _isChecked ? () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
+                          } : null,
+                        child: const Text('CONFIRMAR CANDIDATURA', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
+                      ),
+
+                    ),
+          const SizedBox(height: 55),
               Image.asset(
                 "assets/images/LogoGovernoPTDefault.png",
                 fit: BoxFit.contain,
