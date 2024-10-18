@@ -85,7 +85,7 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
                       ),
 
                     ),
-          const SizedBox(height: 55),
+          const SizedBox(height: 60),
               Image.asset(
                 "assets/images/LogoGovernoPTDefault.png",
                 fit: BoxFit.contain,
