@@ -32,7 +32,7 @@ class DaycareIndexView extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
                           },
-                        child: const Text('ENTRAR', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
+                        child: const Text('INICIAR CANDIDATURA', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
                       ),
 
                     ),

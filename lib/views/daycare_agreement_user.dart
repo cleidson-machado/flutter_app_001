@@ -15,7 +15,11 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('ISS - Instituto da Segurança Social', style: TextStyle( fontSize: 18,fontWeight: FontWeight.bold, color: Colors.white)),
+        backgroundColor: defaultGreenButtonColor,
+        elevation: 20,
         leading: BackButton(
+          color: Colors.white,
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareIndexView()));
           },
@@ -26,16 +30,18 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset("assets/images/LogoSegSocialReb.png", fit: BoxFit.contain, width:  115),
-              const SizedBox(height: 20),
+              // Image.asset("assets/images/LogoSegSocialReb.png", fit: BoxFit.contain, width:  115),
+              // const SizedBox(height: 20),
+              const Text("sistema de candidatura e busca de vagas", style: TextStyle( fontSize: 15, color: Colors.blueGrey),),
+              const SizedBox(height: 15),
               const Text(
-                "TERMOS E CONDIÇÕES DO SERVIÇO",
+                "CRECHE FELIZ - TERMOS e CONDIÇÕES",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: defaultGreenButtonColor),
               ),
               const SizedBox(height: 2),
                   Container(
                     padding: const EdgeInsets.all(16.0),
-                    height: 360.0, // Fixed height for the scrollable area
+                    height: 422.0, // Fixed height for the scrollable area
                     decoration: BoxDecoration(
                       border: Border.all(color: Colors.white, width: 1.0),
                       borderRadius: BorderRadius.circular(8.0),
@@ -64,7 +70,7 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
                       _isChecked = newValue ?? false;
                     });
                   },
-                  subtitle: const Text('Lembre-se a sua aceitação é irrevogável'),
+                  subtitle: const Text('Lembre-se, a sua aceitação é irrevogável'),
                   controlAffinity: ListTileControlAffinity.leading,
                   ),
           const SizedBox(height: 15),
@@ -79,7 +85,21 @@ class _DaycareAgreementState extends State<DaycareAgreement> {
                         ),
                         ),
                         onPressed: _isChecked ? () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=> const DaycareAgreement()));
+                          showModalBottomSheet(context: context, builder: (BuildContext context){
+                            return const SizedBox(
+                              width: 350,
+                              height: 500,
+                              child: Center(
+                                child: Column(
+                                  children: [
+                                    SizedBox(height: 15),
+                                    Text("Informe a sua Titularidade", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: defaultGreenButtonColor),),
+                                  ],
+                                )
+                              )
+                            );
+                          });
                           } : null,
                         child: const Text('CONFIRMAR CANDIDATURA', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),),
                       ),
