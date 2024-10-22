@@ -14,6 +14,10 @@ class DaycareClientViewModel {
         isActive: isActive));
     }
 
+    removeClient(){
+      items.removeLast();
+    }
+
 }
 
 
