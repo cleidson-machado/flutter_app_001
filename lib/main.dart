@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_view_app_001/Components/button_container_auth_gov_pt.dart';
 import 'package:my_view_app_001/Components/colours_library.dart';
 
 /// Flutter code sample for [CupertinoPageScaffold].
@@ -14,6 +15,7 @@ class MyAppLoginLegacyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CupertinoApp(
       theme: CupertinoThemeData(brightness: Brightness.light),
+      debugShowCheckedModeBanner: false, 
       home: PageScaffoldExample(),
     );
   }
@@ -27,7 +29,6 @@ class PageScaffoldExample extends StatefulWidget {
 }
 
 class _PageScaffoldExampleState extends State<PageScaffoldExample> {
-  int _count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -41,18 +42,25 @@ class _PageScaffoldExampleState extends State<PageScaffoldExample> {
       ),
       child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly, //## MASTER ALIGNMENT..
           children: <Widget>[
-            Center(
-              child: Text('You have pressed the button $_count times.'),
+            const SizedBox(height: 15),
+            Align(alignment: Alignment.topCenter,
+            child: Image.asset("assets/images/LogoSegSocialReb.png", fit: BoxFit.contain, width:  175),
             ),
-            const SizedBox(height: 20.0),
-            Center(
-              child: CupertinoButton.filled(
-                onPressed: () => setState(() => _count++),
-                child: const Icon(CupertinoIcons.add),
-              ),
+            const SizedBox(height: 100),
+            const Center(
+              child: Text('Para aceder, utilize dados de acesso via'),
             ),
+            const SizedBox(height: 8),
+            const Center(
+              child: Text('Segurança Social Direta', style: TextStyle(fontWeight: FontWeight.bold),),
+            ),
+            const SizedBox(height: 35),
+            const Center(
+              child: Text('Ou', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),),
+            ),
+            ButtonContainerAuthGovPt(press: () { },)
           ],
         ),
       ),
