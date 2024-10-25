@@ -54,12 +54,17 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Center(child: Column(
               children: <Widget>[
-            const SizedBox(height: 95),
+            const SizedBox(height: 85),
             Align(alignment: Alignment.topCenter,
             child: Image.asset("assets/images/LogoSegSocialReb.png", fit: BoxFit.contain, width:  175),
             ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 75),
             ///CONTAINERS START ############
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 40.0),
+              alignment: Alignment.centerLeft,
+              child: const Text('login', style: TextStyle(fontSize: 36, color: Colors.grey)),),
+            const SizedBox(height: 15),
             Container(
               margin: const EdgeInsets.symmetric(vertical: 10),
               width: size.width *.8,
@@ -74,7 +79,7 @@ class _HomePageState extends State<HomePage> {
                 placeholder: 'NISS',
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return 'Digite um Número Valido de NIF';
+                    return 'Digite um Número Valido de NIF!';
                   }
                   return null;
                 },
@@ -94,20 +99,20 @@ class _HomePageState extends State<HomePage> {
                 placeholder: 'Palavra-Chave',
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
-                    return 'Digite um Número Valido de NIF';
+                    return 'Senha ou NIF estão errados!';
                   }
                   return null;
                 },
               ),
             ),
             ///CONTAINERS END ############
-            ButtonContainerEnable(label: 'ENTRAR', press: () { },),
+            ButtonContainerEnable(label: 'ACEDER', press: () {},),
             const Center(
-              child: Text('Utilize, acima, os mesmos dados de acesso da'),
+              child: Text('Utilize, acima, os dados de acesso utilizados no site da:', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black)),
             ),
             const SizedBox(height: 4),
             const Center(
-              child: Text('- Segurança Social Direta -', style: TextStyle(fontWeight: FontWeight.bold),),
+              child: Text('Segurança Social Direta', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white70, decoration: TextDecoration.underline,)),
             ),
             const SizedBox(height: 25),
             const Center(
