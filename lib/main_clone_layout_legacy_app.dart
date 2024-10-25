@@ -5,12 +5,12 @@ import 'package:my_view_app_001/Components/button_container_enable.dart';
 import 'package:my_view_app_001/Components/colours_library.dart';
 
 /// Flutter code sample for [CupertinoPageScaffold].
-/// MyAppBackGroundTest
+/// MyAppLoginLegacyView
 
-void main() => runApp(const MyAppBackGroundTest());
+void main() => runApp(const MyAppLoginLegacyView());
 
-class MyAppBackGroundTest extends StatelessWidget {
-  const MyAppBackGroundTest({super.key});
+class MyAppLoginLegacyView extends StatelessWidget {
+  const MyAppLoginLegacyView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     const String appTitle = 'Segurança Social + Próxima';
     Size size = MediaQuery.of(context).size;
     return CupertinoPageScaffold(
@@ -42,18 +42,10 @@ class _HomePageState extends State<HomePage> {
         middle: Text(appTitle, 
         style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white30)),
       ),
-      child: Stack(
-        children: [
-          // Background Image
-          Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/images/BgGreenDegrade2.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Center(child: Column(
-              children: <Widget>[
+      child: Center(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly, //## MASTER ALIGNMENT..
+          children: <Widget>[
             const SizedBox(height: 95),
             Align(alignment: Alignment.topCenter,
             child: Image.asset("assets/images/LogoSegSocialReb.png", fit: BoxFit.contain, width:  175),
@@ -103,27 +95,24 @@ class _HomePageState extends State<HomePage> {
             ///CONTAINERS END ############
             ButtonContainerEnable(label: 'ENTRAR', press: () { },),
             const Center(
-              child: Text('Utilize, acima, os mesmos dados de acesso da'),
+              child: Text('Para aceder, utilize dados de acesso via'),
             ),
-            const SizedBox(height: 4),
+            const SizedBox(height: 8),
             const Center(
-              child: Text('- Segurança Social Direta -', style: TextStyle(fontWeight: FontWeight.bold),),
+              child: Text('SITE da Segurança Social Direta', style: TextStyle(fontWeight: FontWeight.bold),),
             ),
             const SizedBox(height: 25),
             const Center(
-              child: Text('Ou', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
+              child: Text('Ou', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),),
             ),
             const SizedBox(height:5),
             ButtonContainerAuthGovPt(press: () { },),
             const SizedBox(height:5),
             const Center(
-              child: Text('\u00A9 2025 - Instituto de Informatica', style: TextStyle(fontSize: 14, color: Colors.white)),
+              child: Text('\u00A9 2025 - Instituto de Informatica', style: TextStyle(fontSize: 14, color: Colors.grey)),
             ),
           ],
-            ),),
-          ),
-          // Content Overlay
-        ],
+        ),
       ),
     );
   }

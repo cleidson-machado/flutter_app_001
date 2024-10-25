@@ -9,12 +9,12 @@ class ButtonContainerAuthGovPt extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 25),
+      margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width *.9,
       height: 85,
       decoration: BoxDecoration(
         color: defaultGreyButtonFndColor,
-        borderRadius: BorderRadius.circular(1)
+        borderRadius: BorderRadius.circular(5)
       ),
 
       child: TextButton(
