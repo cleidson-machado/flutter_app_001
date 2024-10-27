@@ -54,11 +54,11 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Center(child: Column(
               children: <Widget>[
-            const SizedBox(height: 85),
-            Align(alignment: Alignment.topCenter,
-            child: Image.asset("assets/images/LogoSegSocialReb.png", fit: BoxFit.contain, width:  175),
-            ),
             const SizedBox(height: 75),
+            Align(alignment: Alignment.topCenter,
+            child: Image.asset("assets/images/LogoSegSocialReb.png", fit: BoxFit.contain, width:  195),
+            ),
+            const SizedBox(height: 65),
             ///CONTAINERS START ############
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -108,13 +108,13 @@ class _HomePageState extends State<HomePage> {
             ///CONTAINERS END ############
             ButtonContainerEnable(label: 'ACEDER', press: () {},),
             const Center(
-              child: Text('Utilize, acima, os dados de acesso utilizados no site da:', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black)),
+              child: Text('Utilize, acima, o mesmo acesso utilizado no site da:', style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black)),
             ),
             const SizedBox(height: 4),
             const Center(
-              child: Text('Segurança Social Direta', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white70, decoration: TextDecoration.underline,)),
+              child: Text('Segurança Social Direta', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: defaultGreenButtonColor, decoration: TextDecoration.underline,)),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 22),
             const Center(
               child: Text('Ou', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
             ),
