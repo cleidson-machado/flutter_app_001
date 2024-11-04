@@ -4,12 +4,14 @@ import 'package:my_view_app_001/Components/colours_library.dart';
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
 
+  //  TRY Test: Flutter Internationalization and Localization Tutorial | Create Multi Language Flutter Applicatio
+  // https://youtu.be/ltOGmtSuN6w
+
   @override
   Widget build(BuildContext context) {
     /// START GLOBAL TEXT STYLE ################################################
 
-    TextStyle myOwnTextStyle = const TextStyle(
-        fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black);
+    TextStyle myOwnTextStyle = const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black);
 
     /// END GLOBAL TEXT STYLE ##################################################
     return Drawer(
@@ -18,15 +20,9 @@ class NavBar extends StatelessWidget {
         children: [
           const UserAccountsDrawerHeader(
             accountName: Text('CLEIDSON PEREIRA MACHADO',
-                style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: defaultGreenButtonColor)),
+                style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: defaultGreenButtonColor)),
             accountEmail: Text('NISS: 1227.6956.698',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black54)),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black54)),
             decoration: BoxDecoration(
                 color: defaultGreenButtonColor,
                 image: DecorationImage(
