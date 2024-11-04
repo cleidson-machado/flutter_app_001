@@ -39,11 +39,8 @@ class _MainHomePageState extends State<MainHomePage> {
       drawer: const NavBar(),
       appBar: AppBar(
         backgroundColor: defaultGreenButtonColor,
-        title: Text(widget.title,
-            style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black)),
+        title:
+            Text(widget.title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: const Center(), //#### Todo

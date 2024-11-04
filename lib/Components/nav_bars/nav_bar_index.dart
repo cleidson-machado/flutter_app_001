@@ -9,11 +9,10 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /// START GLOBAL TEXT STYLE ################################################
+    /// START LOCAL GLOBAL TEXT STYLE ################################################
+    TextStyle globalTextStyle = const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black);
 
-    TextStyle myOwnTextStyle = const TextStyle(fontSize: 14, fontWeight: FontWeight.w600, color: Colors.black);
-
-    /// END GLOBAL TEXT STYLE ##################################################
+    /// END LOCAL GLOBAL TEXT STYLE ##################################################
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -32,48 +31,48 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.person_search_rounded),
-            title: Text("Posição Atual", style: myOwnTextStyle),
+            title: Text("Posição Atual", style: globalTextStyle),
             onTap: () => {null},
           ),
           ListTile(
             leading: const Icon(Icons.wallet_rounded),
-            title: Text("Documentos de Pagamento", style: myOwnTextStyle),
+            title: Text("Documentos de Pagamento", style: globalTextStyle),
             onTap: () => {null},
           ),
           ListTile(
             leading: const Icon(Icons.card_membership_rounded),
-            title: Text("Cartão Europeu de Seguro", style: myOwnTextStyle),
+            title: Text("Cartão Europeu de Seguro", style: globalTextStyle),
             onTap: () => {null},
           ),
           ListTile(
             leading: const Icon(Icons.inbox_rounded),
-            title: Text("Menssagens", style: myOwnTextStyle),
+            title: Text("Menssagens", style: globalTextStyle),
             onTap: () => {null},
           ),
           ListTile(
             leading: const Icon(Icons.calendar_month_rounded),
-            title: Text("Agenda", style: myOwnTextStyle),
+            title: Text("Agenda", style: globalTextStyle),
             onTap: () => {null},
           ),
           ListTile(
             leading: const Icon(Icons.settings_rounded),
-            title: Text("Definições", style: myOwnTextStyle),
+            title: Text("Definições", style: globalTextStyle),
             onTap: () => {null},
           ),
           ListTile(
             leading: const Icon(Icons.perm_phone_msg_rounded),
-            title: Text("Contactos", style: myOwnTextStyle),
+            title: Text("Contactos", style: globalTextStyle),
             onTap: () => {null},
           ),
           ListTile(
             leading: const Icon(Icons.live_help_rounded),
-            title: Text("Informações", style: myOwnTextStyle),
+            title: Text("Informações", style: globalTextStyle),
             onTap: () => {null},
           ),
           const SizedBox(height: 66),
           ListTile(
             leading: const Icon(Icons.logout_rounded),
-            title: Text("SAIR", style: myOwnTextStyle),
+            title: Text("SAIR", style: globalTextStyle),
             onTap: () => {null},
           ),
         ],
