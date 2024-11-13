@@ -4,8 +4,18 @@ import 'package:my_view_app_001/Components/colours_library.dart';
 class NavBar extends StatelessWidget {
   const NavBar({super.key});
 
-  //  TRY Test: Flutter Internationalization and Localization Tutorial | Create Multi Language Flutter Applicatio
+  //  TRY Test: Flutter Internationalization and Localization Tutorial | Create Multi Language Flutter Application
   // https://youtu.be/ltOGmtSuN6w
+
+  //  TRY Test: Easy way to localize your flutter app | Localization in Flutter
+  // https://youtu.be/YPXbesBx9is
+
+  /// HOW TO - OFFICIAL DOC!!!!
+  /// https://pub.dev/packages/flutter_localization
+
+  /// How to change Your project requires a newer version of the Kotlin Gradle plugin.
+  /// /// Also Verify if this kind of contente can help with the Emulator Issue on the company notebook!
+  /// https://youtu.be/af4LgP0lxyE
 
   @override
   Widget build(BuildContext context) {
