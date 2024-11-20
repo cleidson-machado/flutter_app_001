@@ -1,0 +1,1 @@
+const String appModuleTitle = '| Cooperação - Busca Vagas |';
