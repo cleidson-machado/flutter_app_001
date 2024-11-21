@@ -11,7 +11,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
-  flutter_modular: ^6.3.4 # Componentizing Routes and Dependency Injections, >> https://pub.dev/packages/flutter_modular
+  flutter_modular: ^6.3.4 # Componentizing for Routes and Dependency Injections, >> https://pub.dev/packages/flutter_modular
+  flutter_phoenix: ^1.1.1 # Easily restart your application from scratch, losing any previous state. >> https://pub.dev/packages/flutter_phoenix
 
 dev_dependencies:
   flutter_test:
