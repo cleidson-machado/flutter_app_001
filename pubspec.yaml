@@ -12,7 +12,11 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   flutter_modular: ^6.3.4 # Componentizing for Routes and Dependency Injections, >> https://pub.dev/packages/flutter_modular
-  flutter_phoenix: ^1.1.1 # Easily restart your application from scratch, losing any previous state. >> https://pub.dev/packages/flutter_phoenix
+  flutter_phoenix: ^1.1.1 # Easily restart your application from scratch, losing any previous state. >> https://pub.dev/packages/flutter_phoenix || THIS ONE DON'T WORK GOD HERE WITH MODULAR
+  # BLOCK ################ >> https://refactoring.guru/design-patterns/state
+  # BLOCK ################ >> https://refactoring.guru/design-patterns/catalog
+  # BLOCK ################ >> https://fluttersamples.com
+  # BLOCK ################ >> https://github.com/brianegan/flutter_architecture_samples
 
 dev_dependencies:
   flutter_test:
