@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:my_view_app_001/app/view/contact_form.dart';
 import 'package:my_view_app_001/app/view/contact_list.dart';
 
-//THIS GUY DEFINES THEME AND REDIRECT TO THE MAIN PAGE.. AND ALL ROUTES HERE!!
+//THIS GUY DEFINES A BASIC THEME FOR ALL APP AND REDIRECT TO THE MAIN PAGE.. 
+//AND ALL ROUTES FOR THE APP!!
 
 class ChildcareVacancyFinderApp extends StatelessWidget {
   const ChildcareVacancyFinderApp({super.key});
 
+  //HERE ALL APP ROUTES #################################
   static const HOME = '/';
   static const CONTACT_FORM = 'contact-form';
 
