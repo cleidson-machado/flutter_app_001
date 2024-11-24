@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ContactForm extends StatelessWidget {
-  const ContactForm({super.key});
+class ChildcareForm extends StatelessWidget {
+  const ChildcareForm({super.key});
 
   @override
   Widget build(BuildContext context) {
         return Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.green,
-            title: const Text('Formulário de Contatos', style: TextStyle( fontWeight: FontWeight.bold, color: Colors.white)),
+            title: const Text('Formulário de Pedidos', style: TextStyle( fontWeight: FontWeight.bold, color: Colors.white)),
             iconTheme: const IconThemeData(color: Colors.white),
           ),
           body: ListView(),

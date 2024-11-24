@@ -1,8 +1,8 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:my_view_app_001/app/view/contact_form.dart';
-import 'package:my_view_app_001/app/view/contact_list.dart';
+import 'package:my_view_app_001/app/view/childcare_form.dart';
+import 'package:my_view_app_001/app/view/childcare_list.dart';
 
 //THIS GUY DEFINES A BASIC THEME FOR ALL APP AND REDIRECT TO THE MAIN PAGE.. 
 //AND ALL ROUTES FOR THE APP!!
@@ -22,8 +22,8 @@ class ChildcareVacancyFinderApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        HOME: (context) => const ContactList(),
-        CONTACT_FORM: (context) => const ContactForm(),
+        HOME: (context) => const ChildcareList(),
+        CONTACT_FORM: (context) => const ChildcareForm(),
       },
     );
   }
