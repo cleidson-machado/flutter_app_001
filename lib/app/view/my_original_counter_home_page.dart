@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:my_view_app_001/api_env/api_enviroment.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+//######################## THIS IS OUR MAIN PAGE... USING AS EXAMPLE THE ORIGINAL COUNTER CODE ########################
+
+class MyOriginalCounterHomePage extends StatefulWidget {
+  const MyOriginalCounterHomePage({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MyOriginalCounterHomePage> createState() => _MyOriginalCounterHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyOriginalCounterHomePageState extends State<MyOriginalCounterHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
