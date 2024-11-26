@@ -8,7 +8,7 @@ class ChildcareList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const items = 12;
+    const items = 20;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
@@ -56,30 +56,48 @@ class ItemWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(8)
       ),
       color: Colors.white,
-      child: const SizedBox(
-        height: 130,
+      child: SizedBox(
+        height: 115,
         child: Row(
           children: [
-            Expanded(flex: 2, child: Icon(Icons.home_work_outlined, size: 40, color: Color.fromARGB(255, 6, 40, 166))),
-            Expanded(flex: 8, 
+            Expanded(flex: 2, child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+              IconButton(
+            icon: const Badge(
+              label: Text('8'),
+              backgroundColor: Colors.blueAccent,
+              child: Icon(Icons.face_rounded, size: 40, color: Color.fromARGB(255, 6, 40, 166)),
+            ),
+            onPressed: () {},
+          ),
+              IconButton(
+            icon: const Badge(
+              label: Text('32'),
+              backgroundColor: Colors.blueAccent,
+              child: Icon(Icons.move_to_inbox_rounded, size: 40, color: Color.fromARGB(255, 6, 40, 166)),
+            ),
+            onPressed: () {},
+          ),
+            ],)),
+            const Expanded(flex: 8, 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                    Padding(
                     padding: EdgeInsets.only(top: 8.0), // Top padding
-                    child: Text('Creche XPTO da Listagen', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    child: Text('Creche XPTO da Listagen Names...', style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic, fontWeight: FontWeight.bold, color: Colors.black87),
                     ),
                   ),
-                  Text('Freguesia: Avenida da Flores, 123-79B'), 
+                  Padding(padding: EdgeInsets.only(top: 5.0),
+                    child: Text('Freguesia: Avenida da Flores, 123-79B'),
+                  ), 
                   Text('Entidade: Associação de Pais do Bairro Fe...'),
                   //
-                  Padding(padding: EdgeInsets.only(top: 8.0), // Top padding
-                    child: Text('TIPO: CRECHE ADERENTE', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.red))
+                  Padding(padding: EdgeInsets.only(top: 7.0), // Top padding
+                    child: Text('Resp. Social: CRECHE ADERENTE', style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black45))
                     ),
-                  Padding(padding: EdgeInsets.only(top: 3.0), // Top padding
-                    child: Text('| Cap. Max: 45 | Vagas Disp.: 8 |', style: TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 6, 40, 166))),
-                    ), 
                     //
                   ],
               ))
