@@ -54,12 +54,12 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
+      elevation: 8,
       shadowColor: Colors.black,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       color: Colors.white,
       child: SizedBox(
-          height: 115,
+          height: 145,
           child: Row(
             children: [
               Expanded(
@@ -102,11 +102,11 @@ class ItemWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(top: 8.0), // Top padding
+                        padding: EdgeInsets.only(top: 28.0), // Top padding
                         child: Text(
                           'Creche XPTO da Listagen Names...',
                           style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 14,
                               fontStyle: FontStyle.italic,
                               fontWeight: FontWeight.bold,
                               color: Colors.black87),
@@ -122,7 +122,7 @@ class ItemWidget extends StatelessWidget {
                           padding: EdgeInsets.only(top: 7.0), // Top padding
                           child: Text('Resp. Social: CRECHE ADERENTE',
                               style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.blueGrey))),
                       //
