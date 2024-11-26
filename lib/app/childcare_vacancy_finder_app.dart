@@ -14,8 +14,11 @@ class ChildcareVacancyFinderApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        cardTheme: const CardTheme(color: Colors.white10),
+        useMaterial3: true,
       ),
       routes: {
         RoutesLib.HOME: (context) => const ChildcareList(),

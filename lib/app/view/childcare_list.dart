@@ -8,6 +8,7 @@ class ChildcareList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const items = 15;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
@@ -18,7 +19,47 @@ class ChildcareList extends StatelessWidget {
         icon: const Icon(Icons.add))],
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: ListView(),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: LayoutBuilder(builder: (context, constraints) {
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: constraints.maxHeight),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: List.generate(
+                      items, (index) => ItemWidget(text: 'Item $index xxx')),
+                ),
+              ),
+            );
+          }),
+        ),
+    );
+  }
+}
+
+class ItemWidget extends StatelessWidget {
+  const ItemWidget({
+    super.key,
+    required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5,
+      shadowColor: Colors.black,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8)
+      ),
+      color: Colors.grey[100],
+      child: SizedBox(
+        height: 100,
+        child: Center(child: Text(text)),
+      ),
     );
   }
 }
