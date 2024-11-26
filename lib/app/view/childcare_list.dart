@@ -55,10 +55,30 @@ class ItemWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8)
       ),
-      color: Colors.grey[100],
-      child: SizedBox(
+      color: Colors.green[100],
+      child: const SizedBox(
         height: 100,
-        child: Center(child: Text(text)),
+        child: Row(
+          children: [
+            Expanded(flex: 2, child: Icon(Icons.home_work_outlined, size: 50, color: Colors.green,)),
+            Expanded(flex: 8, 
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                   Padding(
+                    padding: EdgeInsets.only(top: 8.0), // Top padding
+                    child: Text('Creche XPTO da Listagen', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  Text('Freguesia: Avenida da Flores, 123-79B'), 
+                  Text('Entidade: Associação de Pais do Bairro Fe...'),
+                  //
+                  Padding(padding: EdgeInsets.only(top: 5.0), // Top padding
+                    child: Text('MODALIDADE: CRECHE ADERENTE', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.green  )))
+                  ],
+              ))
+            ],
+        )
       ),
     );
   }
