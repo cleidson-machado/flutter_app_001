@@ -8,7 +8,7 @@ class ChildcareList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const items = 15;
+    const items = 12;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green,
@@ -20,7 +20,7 @@ class ChildcareList extends StatelessWidget {
         iconTheme: const IconThemeData(color: Colors.white),
       ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(15.0),
           child: LayoutBuilder(builder: (context, constraints) {
             return SingleChildScrollView(
               child: ConstrainedBox(
@@ -51,16 +51,16 @@ class ItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      shadowColor: Colors.black,
+      shadowColor: Colors.blue,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8)
       ),
-      color: Colors.green[100],
+      color: Colors.white,
       child: const SizedBox(
-        height: 100,
+        height: 130,
         child: Row(
           children: [
-            Expanded(flex: 2, child: Icon(Icons.home_work_outlined, size: 50, color: Colors.green,)),
+            Expanded(flex: 2, child: Icon(Icons.home_work_outlined, size: 40, color: Color.fromARGB(255, 6, 40, 166))),
             Expanded(flex: 8, 
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,8 +73,14 @@ class ItemWidget extends StatelessWidget {
                   Text('Freguesia: Avenida da Flores, 123-79B'), 
                   Text('Entidade: Associação de Pais do Bairro Fe...'),
                   //
-                  Padding(padding: EdgeInsets.only(top: 5.0), // Top padding
-                    child: Text('MODALIDADE: CRECHE ADERENTE', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.green  )))
+                  Padding(padding: EdgeInsets.only(top: 8.0), // Top padding
+                    child: Text('TIPO: CRECHE ADERENTE', style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold, color: Colors.red))
+                    ),
+                  Padding(padding: EdgeInsets.only(top: 3.0), // Top padding
+                    child: Text('| Cap. Max: 45 | Vagas Disp.: 8 |', style: TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold, color: Color.fromARGB(255, 6, 40, 166))),
+                    ), 
+                    //
                   ],
               ))
             ],
