@@ -1,5 +1,269 @@
-{
-    "Fruits": ["Apple", "Banana", "Mango"],
-    "Animals": ["Dog", "Cat", "Elephant"],
-    "Countries": ["USA", "India", "Germany"]
+[
+  {
+    "idDistrito": 1,
+    "descDistrito": "Aveiro",
+    "concelhos": [
+            {
+              "idConcelho": 1,
+              "dscConcelho": "Águeda",
+                "freguesias": [
+                  {
+                    "idFreguesia": 3,
+                    "dscFreguesia": "Aguada de Cima"
+                  },
+                  {
+                    "idFreguesia": 21,
+                    "dscFreguesia": "Águeda e Borralha"
+                  },
+                  {
+                    "idFreguesia": 22,
+                    "dscFreguesia": "Barrô e Aguada de Baixo"
+                  },
+                  {
+                    "idFreguesia": 23,
+                    "dscFreguesia": "Belazaima do Chão, Castanheira do Vouga e Agadão"
+                  },
+                  {
+                    "idFreguesia": 9,
+                    "dscFreguesia": "Fermentelos"
+                  },
+                  {
+                    "idFreguesia": 12,
+                    "dscFreguesia": "Macinhata do Vouga"
+                  },
+                  {
+                    "idFreguesia": 27,
+                    "dscFreguesia": "Préstimo e Macieira de Alcoba"
+                  },
+                  {
+                    "idFreguesia": 24,
+                    "dscFreguesia": "Recardães e Espinhel"
+                  },
+                  {
+                    "idFreguesia": 25,
+                    "dscFreguesia": "Travassô e Óis da Ribeira"
+                  },
+                  {
+                    "idFreguesia": 26,
+                    "dscFreguesia": "Trofa, Segadães e Lamas do Vouga"
+                  },
+                  {
+                    "idFreguesia": 19,
+                    "dscFreguesia": "Valongo do Vouga"
+                  }
+                ]
+            }
+        ]
+  },
+  {
+    "idDistrito": 2,
+    "descDistrito": "Beja",
+    "concelhos": [
+      {
+        "idConcelho": 1,
+        "dscConcelho": "Aljustrel",
+        "freguesias": [
+          {
+            "idFreguesia": 6,
+            "dscFreguesia": "Aljustrel e Rio de Moinhos"
+          },
+          {
+            "idFreguesia": 2,
+            "dscFreguesia": "Ervidel"
+          },
+          {
+            "idFreguesia": 3,
+            "dscFreguesia": "Messejana"
+          },
+          {
+            "idFreguesia": 4,
+            "dscFreguesia": "São João de Negrilhos"
+          }
+        ]
+      },
+      {
+        "idConcelho": 2,
+        "dscConcelho": "Almodôvar",
+        "freguesias": [
+          [
+            {
+              "idFreguesia": 25,
+              "dscFreguesia": "Amares e Figueiredo"
+            },
+            {
+              "idFreguesia": 2,
+              "dscFreguesia": "Barreiros"
+            },
+            {
+              "idFreguesia": 4,
+              "dscFreguesia": "Bico"
+            },
+            {
+              "idFreguesia": 19,
+              "dscFreguesia": "Bouro (santa Maria)"
+            },
+            {
+              "idFreguesia": 20,
+              "dscFreguesia": "Bouro (santa Marta)"
+            },
+            {
+              "idFreguesia": 5,
+              "dscFreguesia": "Caires"
+            },
+            {
+              "idFreguesia": 26,
+              "dscFreguesia": "Caldelas, Sequeiros e Paranhos"
+            },
+            {
+              "idFreguesia": 7,
+              "dscFreguesia": "Carrazedo"
+            },
+            {
+              "idFreguesia": 8,
+              "dscFreguesia": "Dornelas"
+            },
+            {
+              "idFreguesia": 27,
+              "dscFreguesia": "Ferreiros, Prozelo e Besteiros"
+            },
+            {
+              "idFreguesia": 11,
+              "dscFreguesia": "Fiscal"
+            },
+            {
+              "idFreguesia": 12,
+              "dscFreguesia": "Goães"
+            },
+            {
+              "idFreguesia": 13,
+              "dscFreguesia": "Lago"
+            },
+            {
+              "idFreguesia": 18,
+              "dscFreguesia": "Rendufe"
+            },
+            {
+              "idFreguesia": 28,
+              "dscFreguesia": "Torre e Portela"
+            },
+            {
+              "idFreguesia": 29,
+              "dscFreguesia": "Vilela, Seramil e Paredes Secas"
+            }
+          ]
+        ]
+      },
+      {
+        "idConcelho": 3,
+        "dscConcelho": "Alvito"
+      },
+      {
+        "idConcelho": 4,
+        "dscConcelho": "Barrancos"
+      },
+      {
+        "idConcelho": 5,
+        "dscConcelho": "Beja"
+      },
+      {
+        "idConcelho": 6,
+        "dscConcelho": "Castro Verde"
+      },
+      {
+        "idConcelho": 7,
+        "dscConcelho": "Cuba"
+      },
+      {
+        "idConcelho": 8,
+        "dscConcelho": "Ferreira do Alentejo"
+      },
+      {
+        "idConcelho": 9,
+        "dscConcelho": "Mértola"
+      },
+      {
+        "idConcelho": 10,
+        "dscConcelho": "Moura"
+      },
+      {
+        "idConcelho": 11,
+        "dscConcelho": "Odemira"
+      },
+      {
+        "idConcelho": 12,
+        "dscConcelho": "Ourique"
+      },
+      {
+        "idConcelho": 13,
+        "dscConcelho": "Serpa"
+      },
+      {
+        "idConcelho": 14,
+        "dscConcelho": "Vidigueira"
+      }
+    ]
+  },
+  {
+    "idDistrito": 3,
+    "descDistrito": "Braga",
+    "concelhos": [
+      {
+        "idConcelho": 1,
+        "dscConcelho": "Amares"
+      },
+      {
+        "idConcelho": 2,
+        "dscConcelho": "Barcelos"
+      },
+      {
+        "idConcelho": 3,
+        "dscConcelho": "Braga"
+      },
+      {
+        "idConcelho": 4,
+        "dscConcelho": "Cabeceiras de Basto"
+      },
+      {
+        "idConcelho": 5,
+        "dscConcelho": "Celorico de Basto"
+      },
+      {
+        "idConcelho": 6,
+        "dscConcelho": "Esposende"
+      },
+      {
+        "idConcelho": 7,
+        "dscConcelho": "Fafe"
+      },
+      {
+        "idConcelho": 8,
+        "dscConcelho": "Guimarães"
+      },
+      {
+        "idConcelho": 9,
+        "dscConcelho": "Póvoa de Lanhoso"
+      },
+      {
+        "idConcelho": 10,
+        "dscConcelho": "Terras de Bouro"
+      },
+      {
+        "idConcelho": 11,
+        "dscConcelho": "Vieira do Minho"
+      },
+      {
+        "idConcelho": 12,
+        "dscConcelho": "Vila Nova de Famalicão"
+      },
+      {
+        "idConcelho": 13,
+        "dscConcelho": "Vila Verde"
+      },
+      {
+        "idConcelho": 14,
+        "dscConcelho": "Vizela"
+      }
+    ]
   }
+  
+]

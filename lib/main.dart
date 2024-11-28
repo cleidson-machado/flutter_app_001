@@ -1,101 +1,199 @@
 import 'package:flutter/material.dart';
-import 'dart:convert'; // For JSON decoding
-import 'package:flutter/services.dart'; // For loading asset
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: DropdownWithJson(),
+    home: CascadingDropdown(),
   ));
 }
 
-class DropdownWithJson extends StatefulWidget {
-  const DropdownWithJson({super.key});
+class CascadingDropdown extends StatefulWidget {
+  const CascadingDropdown({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _DropdownWithJsonState createState() => _DropdownWithJsonState();
+  _CascadingDropdownState createState() => _CascadingDropdownState();
 }
 
-class _DropdownWithJsonState extends State<DropdownWithJson> {
-  Map<String, List<String>> categoryData = {}; // Data from JSON file
-  String? selectedCategory; // Selected value for the first dropdown
-  String? selectedItem; // Selected value for the second dropdown
-  List<String> subItems = []; // Items for the second dropdown
+class _CascadingDropdownState extends State<CascadingDropdown> {
+  List<Distrito> distritos = [];
+  Distrito? selectedDistrito;
+  Concelho? selectedConcelho;
+  Freguesia? selectedFreguesia;
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    loadJsonData(); // Load JSON when the app starts
+    loadJsonData();
   }
 
-  // Load and parse JSON data
   Future<void> loadJsonData() async {
-    final String response = await rootBundle.loadString('assets/data.json');
-    final Map<String, dynamic> data = json.decode(response);
-    setState(() {
-      categoryData = data.map((key, value) =>
-          MapEntry(key, List<String>.from(value))); // Parse data
-    });
+    try {
+      final String response = await rootBundle.loadString('assets/data.json');
+      final List<dynamic> data = json.decode(response); // Top-level is a List
+      setState(() {
+        distritos = data.map((item) => Distrito.fromJson(item)).toList();
+        isLoading = false;
+      });
+    } catch (e) {
+      print('Error loading JSON: $e');
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (isLoading) {
+      return const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dropdown with JSON'),
-      ),
+      appBar: AppBar(title: const Text('Cascading Dropdowns')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // First Dropdown
-            DropdownButton<String>(
-              value: selectedCategory,
-              hint: const Text('Select Category'),
+            // Distrito Dropdown
+            DropdownButton<Distrito>(
+              value: selectedDistrito,
+              hint: const Text('Select Distrito'),
               isExpanded: true,
-              items: categoryData.keys.map((category) {
-                return DropdownMenuItem<String>(
-                  value: category,
-                  child: Text(category),
+              items: distritos.map((distrito) {
+                return DropdownMenuItem(
+                  value: distrito,
+                  child: Text(distrito.descDistrito),
                 );
               }).toList(),
               onChanged: (value) {
                 setState(() {
-                  selectedCategory = value;
-                  subItems = categoryData[value]!; // Update subItems
-                  selectedItem = null; // Reset second dropdown
+                  selectedDistrito = value;
+                  selectedConcelho = null;
+                  selectedFreguesia = null;
                 });
               },
             ),
             const SizedBox(height: 16),
-            // Second Dropdown
-            DropdownButton<String>(
-              value: selectedItem,
-              hint: const Text('Select Item'),
+
+            // Concelho Dropdown
+            DropdownButton<Concelho>(
+              value: selectedConcelho,
+              hint: const Text('Select Concelho'),
               isExpanded: true,
-              items: subItems.map((item) {
-                return DropdownMenuItem<String>(
-                  value: item,
-                  child: Text(item),
+              items: selectedDistrito?.concelhos.map((concelho) {
+                return DropdownMenuItem(
+                  value: concelho,
+                  child: Text(concelho.dscConcelho),
                 );
               }).toList(),
               onChanged: (value) {
                 setState(() {
-                  selectedItem = value;
+                  selectedConcelho = value;
+                  selectedFreguesia = null;
                 });
               },
             ),
             const SizedBox(height: 16),
-            // Display Selected Data
-            if (selectedCategory != null && selectedItem != null)
-              Text(
-                'Selected: $selectedCategory -> $selectedItem',
-                style: const TextStyle(fontSize: 16),
-              ),
+
+            // Freguesia Dropdown
+            DropdownButton<Freguesia>(
+              value: selectedFreguesia,
+              hint: const Text('Select Freguesia'),
+              isExpanded: true,
+              items: selectedConcelho?.freguesias?.map((freguesia) {
+                return DropdownMenuItem(
+                  value: freguesia,
+                  child: Text(freguesia.dscFreguesia),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedFreguesia = value;
+                });
+              },
+            ),
+            const SizedBox(height: 16),
+
+            // Display Selected Values
+            if (selectedDistrito != null)
+              Text('Distrito: ${selectedDistrito!.descDistrito}'),
+            if (selectedConcelho != null)
+              Text('Concelho: ${selectedConcelho!.dscConcelho}'),
+            if (selectedFreguesia != null)
+              Text('Freguesia: ${selectedFreguesia!.dscFreguesia}'),
           ],
         ),
       ),
+    );
+  }
+}
+
+// Dart Models
+class Distrito {
+  final int idDistrito;
+  final String descDistrito;
+  final List<Concelho> concelhos;
+
+  Distrito({
+    required this.idDistrito,
+    required this.descDistrito,
+    required this.concelhos,
+  });
+
+  factory Distrito.fromJson(Map<String, dynamic> json) {
+    return Distrito(
+      idDistrito: json['idDistrito'],
+      descDistrito: json['descDistrito'],
+      concelhos: (json['concelhos'] as List)
+          .map((concelho) => Concelho.fromJson(concelho))
+          .toList(),
+    );
+  }
+}
+
+class Concelho {
+  final int idConcelho;
+  final String dscConcelho;
+  final List<Freguesia>? freguesias;
+
+  Concelho({
+    required this.idConcelho,
+    required this.dscConcelho,
+    this.freguesias,
+  });
+
+  factory Concelho.fromJson(Map<String, dynamic> json) {
+    return Concelho(
+      idConcelho: json['idConcelho'],
+      dscConcelho: json['dscConcelho'],
+      freguesias: json['freguesias'] != null
+          ? (json['freguesias'] as List)
+              .map((freguesia) => Freguesia.fromJson(freguesia))
+              .toList()
+          : null,
+    );
+  }
+}
+
+class Freguesia {
+  final int idFreguesia;
+  final String dscFreguesia;
+
+  Freguesia({
+    required this.idFreguesia,
+    required this.dscFreguesia,
+  });
+
+  factory Freguesia.fromJson(Map<String, dynamic> json) {
+    return Freguesia(
+      idFreguesia: json['idFreguesia'],
+      dscFreguesia: json['dscFreguesia'],
     );
   }
 }
