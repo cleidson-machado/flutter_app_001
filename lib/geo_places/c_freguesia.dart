@@ -1,4 +1,3 @@
-
 //MESMO QUE BAIRRO... Pequena Povoação
 
 class Freguesia {

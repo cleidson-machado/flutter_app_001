@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
   {
     "idFreguesia": 17,
     "dscFreguesia": "Abrigada e Cabanas de Torres"
@@ -44,3 +45,70 @@
     "dscFreguesia": "Vila Verde dos Francos"
   }
 ]
+=======
+    {
+      "idFreguesia": 25,
+      "dscFreguesia": "Amares e Figueiredo"
+    },
+    {
+      "idFreguesia": 2,
+      "dscFreguesia": "Barreiros"
+    },
+    {
+      "idFreguesia": 4,
+      "dscFreguesia": "Bico"
+    },
+    {
+      "idFreguesia": 19,
+      "dscFreguesia": "Bouro (santa Maria)"
+    },
+    {
+      "idFreguesia": 20,
+      "dscFreguesia": "Bouro (santa Marta)"
+    },
+    {
+      "idFreguesia": 5,
+      "dscFreguesia": "Caires"
+    },
+    {
+      "idFreguesia": 26,
+      "dscFreguesia": "Caldelas, Sequeiros e Paranhos"
+    },
+    {
+      "idFreguesia": 7,
+      "dscFreguesia": "Carrazedo"
+    },
+    {
+      "idFreguesia": 8,
+      "dscFreguesia": "Dornelas"
+    },
+    {
+      "idFreguesia": 27,
+      "dscFreguesia": "Ferreiros, Prozelo e Besteiros"
+    },
+    {
+      "idFreguesia": 11,
+      "dscFreguesia": "Fiscal"
+    },
+    {
+      "idFreguesia": 12,
+      "dscFreguesia": "Goães"
+    },
+    {
+      "idFreguesia": 13,
+      "dscFreguesia": "Lago"
+    },
+    {
+      "idFreguesia": 18,
+      "dscFreguesia": "Rendufe"
+    },
+    {
+      "idFreguesia": 28,
+      "dscFreguesia": "Torre e Portela"
+    },
+    {
+      "idFreguesia": 29,
+      "dscFreguesia": "Vilela, Seramil e Paredes Secas"
+    }
+  ]
+>>>>>>> d9a25ed649a7abd9fa520c3a6e6ef15092418855

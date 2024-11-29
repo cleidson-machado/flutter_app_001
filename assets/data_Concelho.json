@@ -1,4 +1,5 @@
 [
+<<<<<<< HEAD
   {
     "idConcelho": 1,
     "dscConcelho": "Alenquer"
@@ -64,3 +65,62 @@
     "dscConcelho": "Vila Franca de Xira"
   }
 ]
+=======
+    {
+      "idConcelho": 1,
+      "dscConcelho": "Amares"
+    },
+    {
+      "idConcelho": 2,
+      "dscConcelho": "Barcelos"
+    },
+    {
+      "idConcelho": 3,
+      "dscConcelho": "Braga"
+    },
+    {
+      "idConcelho": 4,
+      "dscConcelho": "Cabeceiras de Basto"
+    },
+    {
+      "idConcelho": 5,
+      "dscConcelho": "Celorico de Basto"
+    },
+    {
+      "idConcelho": 6,
+      "dscConcelho": "Esposende"
+    },
+    {
+      "idConcelho": 7,
+      "dscConcelho": "Fafe"
+    },
+    {
+      "idConcelho": 8,
+      "dscConcelho": "Guimarães"
+    },
+    {
+      "idConcelho": 9,
+      "dscConcelho": "Póvoa de Lanhoso"
+    },
+    {
+      "idConcelho": 10,
+      "dscConcelho": "Terras de Bouro"
+    },
+    {
+      "idConcelho": 11,
+      "dscConcelho": "Vieira do Minho"
+    },
+    {
+      "idConcelho": 12,
+      "dscConcelho": "Vila Nova de Famalicão"
+    },
+    {
+      "idConcelho": 13,
+      "dscConcelho": "Vila Verde"
+    },
+    {
+      "idConcelho": 14,
+      "dscConcelho": "Vizela"
+    }
+  ]
+>>>>>>> d9a25ed649a7abd9fa520c3a6e6ef15092418855
