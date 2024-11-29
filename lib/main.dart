@@ -24,6 +24,7 @@ class DropdownWithJson extends StatefulWidget {
 class _DropdownWithJsonState extends State<DropdownWithJson> {
   List<Distrito> distritos = [];
   List<Concelho> concelhos = [];
+  List<Freguesia> freguesias = [];
   Distrito? selectedDistrito; //ESTADO
   Concelho? selectedConcelho; //MUNICÍPIO
   Freguesia? selectedFreguesia; //BAIRRO
@@ -33,10 +34,11 @@ class _DropdownWithJsonState extends State<DropdownWithJson> {
   void initState() {
     super.initState();
     loadJsonDataToDistrito();
-    loadJsonDataToConcelho(); // Load JSON when the app starts
+    loadJsonDataToConcelho();
+    loadJsonDataToFreguesia(); // Load JSON when the app starts
   }
 
-  // Load and parse JSON data
+  // Load and parse JSON data to Distrito
   Future<void> loadJsonDataToDistrito() async {
     try {
       final String response = await rootBundle.loadString('assets/data_distrito.json');
@@ -54,13 +56,31 @@ class _DropdownWithJsonState extends State<DropdownWithJson> {
     }
   }
 
-  // Load and parse JSON data
+  // Load and parse JSON data to Concelho
   Future<void> loadJsonDataToConcelho() async {
     try {
       final String response = await rootBundle.loadString('assets/data_concelho.json');
       final List<dynamic> data = json.decode(response);
     setState(() {
       concelhos = data.map((item) => Concelho.fromJson(item)).toList();
+      isLoading = false;
+    });
+    print('JSON FILE LOAD SUCCESSFULLY');
+    } catch (e) {
+      print('Error Loading Json: $e');
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
+
+  // Load and parse JSON data to Freguesia
+  Future<void> loadJsonDataToFreguesia() async {
+    try {
+      final String response = await rootBundle.loadString('assets/data_freguesia.json');
+      final List<dynamic> data = json.decode(response);
+    setState(() {
+      freguesias = data.map((item) => Freguesia.fromJson(item)).toList();
       isLoading = false;
     });
     print('JSON FILE LOAD SUCCESSFULLY');
@@ -83,6 +103,7 @@ class _DropdownWithJsonState extends State<DropdownWithJson> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [ 
+
             DropdownButton<Distrito>(
               value: selectedDistrito,
               hint: const Text('Selecione o Distrito'),
@@ -117,6 +138,26 @@ class _DropdownWithJsonState extends State<DropdownWithJson> {
               onChanged: (value) {
                 setState(() {
                   selectedConcelho = value;
+                  //selectedFreguesia= null;
+                });
+              },
+            ),
+
+            const SizedBox(height: 26),
+
+            DropdownButton<Freguesia>(
+              value: selectedFreguesia,
+              hint: const Text('Selecione a Freguesia'),
+              isExpanded: true,
+              items: freguesias.map((freguesia){
+                return DropdownMenuItem(
+                  value: freguesia,
+                  child: Text(freguesia.dscFreguesia as String)
+                  );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedFreguesia = value;
                   //selectedFreguesia= null;
                 });
               },
