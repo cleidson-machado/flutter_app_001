@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   
   // Initial Selected Value
-  String dropdownvalue = 'Item 1';   
+  String dropdownvalue = 'Item 1';
 
   // List of items in our dropdown menu
   var items = [    
