@@ -1,0 +1,66 @@
+[
+  {
+    "idConcelho": 1,
+    "dscConcelho": "Alenquer"
+  },
+  {
+    "idConcelho": 15,
+    "dscConcelho": "Amadora"
+  },
+  {
+    "idConcelho": 2,
+    "dscConcelho": "Arruda dos Vinhos"
+  },
+  {
+    "idConcelho": 3,
+    "dscConcelho": "Azambuja"
+  },
+  {
+    "idConcelho": 4,
+    "dscConcelho": "Cadaval"
+  },
+  {
+    "idConcelho": 5,
+    "dscConcelho": "Cascais"
+  },
+  {
+    "idConcelho": 6,
+    "dscConcelho": "Lisboa"
+  },
+  {
+    "idConcelho": 7,
+    "dscConcelho": "Loures"
+  },
+  {
+    "idConcelho": 8,
+    "dscConcelho": "Lourinhã"
+  },
+  {
+    "idConcelho": 9,
+    "dscConcelho": "Mafra"
+  },
+  {
+    "idConcelho": 16,
+    "dscConcelho": "Odivelas"
+  },
+  {
+    "idConcelho": 10,
+    "dscConcelho": "Oeiras"
+  },
+  {
+    "idConcelho": 11,
+    "dscConcelho": "Sintra"
+  },
+  {
+    "idConcelho": 12,
+    "dscConcelho": "Sobral de Monte Agraço"
+  },
+  {
+    "idConcelho": 13,
+    "dscConcelho": "Torres Vedras"
+  },
+  {
+    "idConcelho": 14,
+    "dscConcelho": "Vila Franca de Xira"
+  }
+]

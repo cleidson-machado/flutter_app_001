@@ -1,0 +1,7 @@
+## TODOS OS JSON FORAM CRIADOS COM BASE NAS CONSULTA REST ABAIXO, OU SEJA, TUDO EM RELAÇÃO APENAS A LISBOA 11
+
+https://devapp.seg-social.pt/vaga/rest/vaga/localidade/distritos
+
+https://devapp.seg-social.pt/vaga/rest/vaga/localidade/distritos/11/concelhos
+
+https://devapp.seg-social.pt/vaga/rest/vaga/localidade/distritos/11/concelhos/1/freguesias

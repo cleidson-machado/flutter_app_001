@@ -1,0 +1,74 @@
+[
+    {
+      "idDistrito": 1,
+      "descDistrito": "Aveiro"
+    },
+    {
+      "idDistrito": 2,
+      "descDistrito": "Beja"
+    },
+    {
+      "idDistrito": 3,
+      "descDistrito": "Braga"
+    },
+    {
+      "idDistrito": 4,
+      "descDistrito": "Bragança"
+    },
+    {
+      "idDistrito": 5,
+      "descDistrito": "Castelo Branco"
+    },
+    {
+      "idDistrito": 6,
+      "descDistrito": "Coimbra"
+    },
+    {
+      "idDistrito": 7,
+      "descDistrito": "Évora"
+    },
+    {
+      "idDistrito": 8,
+      "descDistrito": "Faro"
+    },
+    {
+      "idDistrito": 9,
+      "descDistrito": "Guarda"
+    },
+    {
+      "idDistrito": 10,
+      "descDistrito": "Leiria"
+    },
+    {
+      "idDistrito": 11,
+      "descDistrito": "Lisboa"
+    },
+    {
+      "idDistrito": 12,
+      "descDistrito": "Portalegre"
+    },
+    {
+      "idDistrito": 13,
+      "descDistrito": "Porto"
+    },
+    {
+      "idDistrito": 14,
+      "descDistrito": "Santarém"
+    },
+    {
+      "idDistrito": 15,
+      "descDistrito": "Setúbal"
+    },
+    {
+      "idDistrito": 16,
+      "descDistrito": "Viana do Castelo"
+    },
+    {
+      "idDistrito": 17,
+      "descDistrito": "Vila Real"
+    },
+    {
+      "idDistrito": 18,
+      "descDistrito": "Viseu"
+    }
+  ]
