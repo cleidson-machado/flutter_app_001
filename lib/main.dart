@@ -23,9 +23,9 @@ class DropdownWithJson extends StatefulWidget {
 
 class _DropdownWithJsonState extends State<DropdownWithJson> {
   List<Distrito> distritos = [];
-  Distrito? selectedDistrito;
-  Concelho? selectedConselho;
-  Freguesia? selectedFreguesia;
+  Distrito? selectedDistrito; //ESTADO
+  Concelho? selectedConselho; //MUNICÍPIO
+  Freguesia? selectedFreguesia; //BAIRRO
   bool isLoading = true;
 
   @override
@@ -58,11 +58,71 @@ class _DropdownWithJsonState extends State<DropdownWithJson> {
       appBar: AppBar(
         title: const Text('Dropdown with JSON'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: Padding(
+        padding: const EdgeInsets.all(56.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [ Text('TODO-TODO')
+          children: [ 
+            DropdownButton<Distrito>(
+              value: selectedDistrito,
+              hint: const Text('Selecione o Distrito'),
+              isExpanded: true,
+              items: distritos.map((distrito){
+                return DropdownMenuItem(
+                  value: distrito,
+                  child: Text(distrito.descDistrito as String)
+                  );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedDistrito = value;
+                  selectedConselho = [value] as Concelho?;
+                  selectedFreguesia= null;
+                });
+              },
+            ),
+
+            const SizedBox(height: 26),
+
+            DropdownButton<Distrito>(
+              value: selectedDistrito,
+              hint: const Text('Selecione o Conselho'),
+              isExpanded: true,
+              items: distritos.map((distrito){
+                return DropdownMenuItem(
+                  value: distrito,
+                  child: Text(distrito.descDistrito as String)
+                  );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedDistrito = value;
+                  selectedConselho = [value] as Concelho?;
+                  selectedFreguesia= null;
+                });
+              },
+            ),
+
+            const SizedBox(height: 26),
+
+            DropdownButton<Distrito>(
+              value: selectedDistrito,
+              hint: const Text('Selecione o Freguesia'),
+              isExpanded: true,
+              items: distritos.map((distrito){
+                return DropdownMenuItem(
+                  value: distrito,
+                  child: Text(distrito.descDistrito as String)
+                  );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedDistrito = value;
+                  selectedConselho = [value] as Concelho?;
+                  selectedFreguesia= null;
+                });
+              },
+            )
           ],
         ),
       ),
