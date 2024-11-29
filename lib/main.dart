@@ -1,77 +1,98 @@
 import 'package:flutter/material.dart';
+import 'dart:convert'; // For JSON decoding
+import 'package:flutter/services.dart'; // For loading asset
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    home: DropdownWithJson(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class DropdownWithJson extends StatefulWidget {
+  const DropdownWithJson({super.key});
+
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter DropDownButton',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: const MyHomePage(),
-      debugShowCheckedModeBanner: false,
-    );
+  // ignore: library_private_types_in_public_api
+  _DropdownWithJsonState createState() => _DropdownWithJsonState();
+}
+
+class _DropdownWithJsonState extends State<DropdownWithJson> {
+  Map<String, List<String>> categoryData = {}; // Data from JSON file
+  String? selectedCategory; // Selected value for the first dropdown
+  String? selectedItem; // Selected value for the second dropdown
+  List<String> subItems = []; // Items for the second dropdown
+
+  @override
+  void initState() {
+    super.initState();
+    loadJsonData(); // Load JSON when the app starts
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  // Load and parse JSON data
+  Future<void> loadJsonData() async {
+    final String response = await rootBundle.loadString('assets/data.json');
+    final Map<String, dynamic> data = json.decode(response);
+    setState(() {
+      categoryData = data.map((key, value) =>
+          MapEntry(key, List<String>.from(value))); // Parse data
+    });
+  }
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  
-  // Initial Selected Value
-  String dropdownvalue = 'Item 1';
-
-  // List of items in our dropdown menu
-  var items = [    
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Geeksforgeeks"),
+        title: const Text('Dropdown with JSON'),
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DropdownButton(
-              
-              // Initial Value
-              value: dropdownvalue,
-              
-              // Down Arrow Icon
-              icon: const Icon(Icons.keyboard_arrow_down),    
-              
-              // Array list of items
-              items: items.map((String items) {
-                return DropdownMenuItem(
-                  value: items,
-                  child: Text(items),
+            // First Dropdown
+            DropdownButton<String>(
+              value: selectedCategory,
+              hint: const Text('Select Category'),
+              isExpanded: true,
+              items: categoryData.keys.map((category) {
+                return DropdownMenuItem<String>(
+                  value: category,
+                  child: Text(category),
                 );
               }).toList(),
-              // After selecting the desired option,it will
-              // change button value to selected value
-              onChanged: (String? newValue) { 
+              onChanged: (value) {
                 setState(() {
-                  dropdownvalue = newValue!;
+                  selectedCategory = value;
+                  subItems = categoryData[value]!; // Update subItems
+                  selectedItem = null; // Reset second dropdown
                 });
               },
             ),
+            const SizedBox(height: 16),
+            // Second Dropdown
+            DropdownButton<String>(
+              value: selectedItem,
+              hint: const Text('Select Item'),
+              isExpanded: true,
+              items: subItems.map((item) {
+                return DropdownMenuItem<String>(
+                  value: item,
+                  child: Text(item),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedItem = value;
+                });
+              },
+            ),
+            const SizedBox(height: 16),
+            // Display Selected Data
+            if (selectedCategory != null && selectedItem != null)
+              Text(
+                'Selected: $selectedCategory -> $selectedItem',
+                style: const TextStyle(fontSize: 16),
+              ),
           ],
         ),
       ),
