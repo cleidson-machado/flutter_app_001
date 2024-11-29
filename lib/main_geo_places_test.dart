@@ -5,6 +5,8 @@ import 'dart:convert'; // For JSON decoding
 import 'package:flutter/services.dart';
 import 'package:my_view_app_001/geo_places/a_distrito.dart'; // For loading asset
 
+//##### LAST BKP GOD!! JUST BASIC CODE YET!
+
 void main() {
   runApp(const MaterialApp(
     home: DropdownWithJson(),
