@@ -1,3 +1,6 @@
+
+//MESMO QUE BAIRRO... Pequena Povoação
+
 class Freguesia {
   int? idFreguesia;
   String? dscFreguesia;

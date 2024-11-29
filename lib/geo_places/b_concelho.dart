@@ -1,5 +1,7 @@
 import 'package:my_view_app_001/geo_places/c_freguesia.dart';
 
+//CONCELHO COM C É MESMO QUE MUNICÍPIO... Municipalidade...
+
 class Concelho {
   int? idConcelho;
   String? dscConcelho;

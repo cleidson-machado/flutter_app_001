@@ -3,7 +3,9 @@
 import 'package:flutter/material.dart';
 import 'dart:convert'; // For JSON decoding
 import 'package:flutter/services.dart';
-import 'package:my_view_app_001/geo_places/a_distrito.dart'; // For loading asset
+import 'package:my_view_app_001/geo_places/a_distrito.dart';
+import 'package:my_view_app_001/geo_places/b_concelho.dart';
+import 'package:my_view_app_001/geo_places/c_freguesia.dart'; // For loading asset
 
 void main() {
   runApp(const MaterialApp(
@@ -21,6 +23,9 @@ class DropdownWithJson extends StatefulWidget {
 
 class _DropdownWithJsonState extends State<DropdownWithJson> {
   List<Distrito> distritos = [];
+  Distrito? selectedDistrito;
+  Concelho? selectedConselho;
+  Freguesia? selectedFreguesia;
   bool isLoading = true;
 
   @override
@@ -38,6 +43,7 @@ class _DropdownWithJsonState extends State<DropdownWithJson> {
       distritos = data.map((item) => Distrito.fromJson(item)).toList();
       isLoading = false;
     });
+    print('JSON FILE LOAD SUCCESSFULLY');
     } catch (e) {
       print('Error Loading Json: $e');
       setState(() {

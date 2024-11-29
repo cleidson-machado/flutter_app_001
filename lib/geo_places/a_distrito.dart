@@ -1,5 +1,7 @@
 import 'package:my_view_app_001/geo_places/b_concelho.dart';
 
+//MESMO QUE ESTADO!
+
 class Distrito {
   int? idDistrito;
   String? descDistrito;
