@@ -28,17 +28,14 @@ class ChildcareRootPage extends StatelessWidget {
             child: ListView(
               children: <Widget>[
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {Navigator.of(context).pushNamed(RoutesLib.CARDS_LIST_VIEW_START);
+                  },
                   child: Card(
                     elevation: 0.5,
                     shadowColor: Colors.black,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(0),
-                        side: const BorderSide(
-                          color: Colors.grey,
-                          width: 0.5
-                        )
-                        ),
+                        side: const BorderSide(color: Colors.grey, width: 0.5)),
                     color: Colors.white,
                     child: const Padding(
                         padding:
