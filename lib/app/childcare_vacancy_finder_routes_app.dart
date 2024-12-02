@@ -2,5 +2,6 @@
 
 class RoutesLib {
     static const HOME = '/';
-    static const ORDER_VACANCY_FORM = 'order-vacancy-form'; //vacancy request order form test
+    static const ORDER_VACANCY_FORM = 'order-vacancy-form';
+    static const CARDS_LIST_VIEW_TEST1 ='cards-list-view-test1'; //vacancy request order form test
 }
