@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_view_app_001/app/childcare_vacancy_finder_routes_app.dart';
 import 'package:my_view_app_001/app/feature/a_start/start_page_view.dart';
+import 'package:my_view_app_001/app/feature/b_search_start_form/search_start_form_view.dart';
 import 'package:my_view_app_001/app/view/childcare_root_page.dart';
 import 'package:my_view_app_001/app/view/childcare_vacancy_order_form.dart';
 import 'package:my_view_app_001/app/view/childcare_list.dart';
@@ -24,9 +25,10 @@ class ChildcareVacancyFinderApp extends StatelessWidget {
       ),
       routes: {
         RoutesLib.HOME: (context) => const ChildcareRootPage(),
-        RoutesLib.CARDS_LIST_VIEW_TEST1: (context) => const ChildcareList(),
         RoutesLib.ORDER_VACANCY_FORM: (context) => const ChildcareVacancyOrderForm(),
         RoutesLib.CARDS_LIST_VIEW_START: (context) => const StartPageView(),
+        RoutesLib.SEARCH_COMBOS_VIEW_FORM: (context) => const SearchStartFormView(),
+        RoutesLib.CARDS_LIST_VIEW_TEST1: (context) => const ChildcareList(),
       },
     );
   }

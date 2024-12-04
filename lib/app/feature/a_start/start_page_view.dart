@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_view_app_001/app/childcare_vacancy_finder_routes_app.dart';
 
 //THIS GUY IS ONLY A SIMPLE LIST PAGE
 //LIST OF MATERIAL ICON LIBRARY ###########################
@@ -23,7 +24,8 @@ class StartPageView extends StatelessWidget {
               children: <Widget>[
                 //######### CARD 1 ##########
                 GestureDetector(
-                    onTap: () {},
+                    onTap: () {Navigator.of(context).pushNamed(RoutesLib.SEARCH_COMBOS_VIEW_FORM);
+                    },
                     child: Card(
                         elevation: 0.5,
                         shadowColor: Colors.black,
@@ -40,7 +42,7 @@ class StartPageView extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsets.only(
+                                       padding: EdgeInsets.only(
                                           left: 18,
                                           top: 18,
                                           bottom: 5,
