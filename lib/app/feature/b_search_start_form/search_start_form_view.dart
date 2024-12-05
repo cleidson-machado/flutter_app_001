@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 class SearchStartFormView extends StatefulWidget {
   const SearchStartFormView({super.key});
@@ -34,8 +35,46 @@ final List<String> _dropDownItemsTipoDeVaga = [
   'Anda e têm idade inferior a 2 Anos',
   'Têm idade superior a 2 anos ou mais',
 ];
-String _selectedTextTipoDeVaga  = 'Selecione uma Opção';
+String _selectedTextTipoDeVaga = 'Selecione uma Opção';
 //FIM - ITENS LIST da LOCALIZAÇÃO
+
+//ITENS LIST da TIPO DE DISTRITO
+final List<String> _dropDownItemsDistrito = [
+  'Selecione uma Opção',
+  'Aveiro',
+  'Beja',
+  'Braga',
+  'Bragança',
+  'lista....',
+];
+String _selectedTextDistrito = 'Selecione uma Opção';
+//FIM - ITENS LIST da DISTRITO
+
+//ITENS LIST da TIPO DE CONCELHO
+final List<String> _dropDownItemsConcelho = [
+  'Selecione uma Opção',
+  'Alenquer',
+  'Amadora',
+  'Arruda de Vinhos',
+  'Azambuja',
+  'Cadaval',
+  'lista....',
+];
+String _selectedTextConcelho = 'Selecione uma Opção';
+//FIM - ITENS LIST da CONCELHO
+
+//ITENS LIST da TIPO DE CONCELHO
+final List<String> _dropDownItemsFreguesia = [
+  'Selecione uma Opção',
+  'Abrigada e Cabanas de Torres',
+  'Aldeia Galega de Merceana e Aldeia Gavinha',
+  'Alequer (santo Estêvão e Triana)',
+  'Carnota',
+  'Carregado de Cadafais',
+  'lista....',
+];
+String _selectedTextFreguesia = 'Selecione uma Opção';
+//FIM - ITENS LIST da CONCELHO
 
 class _SearchStartFormViewState extends State<SearchStartFormView> {
   @override
@@ -59,14 +98,15 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                   child: Container(
                     decoration: const BoxDecoration(
                         color: Colors.white,
-                        border: Border(bottom: BorderSide(color: Colors.black))),
+                        border:
+                            Border(bottom: BorderSide(color: Colors.black))),
                     child: const Row(
                       children: [
                         Padding(
                           padding:
                               EdgeInsets.symmetric(horizontal: 0, vertical: 3),
                           child: Text(
-                            'Pesquisa de vagas',
+                            'Pesquisa de vagas ' ' | opções de filtros |',
                             style: TextStyle(
                                 fontSize: 18,
                                 fontStyle: FontStyle.normal,
@@ -78,28 +118,25 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                     ),
                   ),
                 ),
-          
+
                 //############################# COMBO 1
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 20),
                   child: Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.white),
+                    decoration: const BoxDecoration(color: Colors.white),
                     child: Row(
                       children: [
                         Expanded(
                           child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                            child: 
-                            DropdownButtonFormField(
-                              value: _selectedTextRespostaSocial,
-                              items: _dropDownItemsRespostaSocial.map((String item)
-                                {
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 3),
+                              child: DropdownButtonFormField(
+                                value: _selectedTextRespostaSocial,
+                                items: _dropDownItemsRespostaSocial
+                                    .map((String item) {
                                   return DropdownMenuItem(
-                                    value: item,
-                                    child: Text(item)
-                                    );
+                                      value: item, child: Text(item));
                                 }).toList(),
                                 onChanged: (String? value) {
                                   setState(() {
@@ -108,38 +145,34 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                                 },
                                 icon: const Icon(Icons.arrow_drop_down),
                                 decoration: const InputDecoration(
-                                  labelText: 'Resposta Social',
+                                  labelText: '(#) Resposta Social',
                                   border: OutlineInputBorder(),
                                 ),
-                              )
-                          ),
+                              )),
                         ),
                       ],
                     ),
                   ),
                 ),
-          
+
                 //############################# COMBO 2
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 15),
                   child: Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.white),
+                    decoration: const BoxDecoration(color: Colors.white),
                     child: Row(
                       children: [
                         Expanded(
                           child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                            child: 
-                            DropdownButtonFormField(
-                              value: _selectedTextLocalizacao,
-                              items: _dropDownItemsLocalizacao.map((String item)
-                                {
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 3),
+                              child: DropdownButtonFormField(
+                                value: _selectedTextLocalizacao,
+                                items: _dropDownItemsLocalizacao
+                                    .map((String item) {
                                   return DropdownMenuItem(
-                                    value: item,
-                                    child: Text(item)
-                                    );
+                                      value: item, child: Text(item));
                                 }).toList(),
                                 onChanged: (String? value) {
                                   setState(() {
@@ -148,11 +181,10 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                                 },
                                 icon: const Icon(Icons.arrow_drop_down),
                                 decoration: const InputDecoration(
-                                  labelText: 'Localização',
+                                  labelText: '(#) Localização',
                                   border: OutlineInputBorder(),
                                 ),
-                              )
-                          ),
+                              )),
                         ),
                       ],
                     ),
@@ -163,24 +195,34 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
 
                 //############################# COMBO 3
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                  padding: const EdgeInsets.only(
+                      left: 15, right: 15, bottom: 15, top: 15),
                   child: Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        border: Border(bottom: BorderSide(color: Colors.black))),
-                    child: const Row(
+                    decoration: const BoxDecoration(color: Colors.white),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                          child: Text(
-                            'Combo 3 - DISTRITO',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
+                        Expanded(
+                          child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 3),
+                              child: DropdownButtonFormField(
+                                value: _selectedTextDistrito,
+                                items:
+                                    _dropDownItemsDistrito.map((String item) {
+                                  return DropdownMenuItem(
+                                      value: item, child: Text(item));
+                                }).toList(),
+                                onChanged: (String? value) {
+                                  setState(() {
+                                    _selectedTextDistrito = value!;
+                                  });
+                                },
+                                icon: const Icon(Icons.arrow_drop_down),
+                                decoration: const InputDecoration(
+                                  labelText: '(#) Distrito',
+                                  border: OutlineInputBorder(),
+                                ),
+                              )),
                         ),
                       ],
                     ),
@@ -189,50 +231,70 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
 
                 //############################# COMBO 4
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 15),
                   child: Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        border: Border(bottom: BorderSide(color: Colors.black))),
-                    child: const Row(
+                    decoration: const BoxDecoration(color: Colors.white),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                          child: Text(
-                            'Combo 4 - CONCELHO',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
+                        Expanded(
+                          child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 3),
+                              child: DropdownButtonFormField(
+                                value: _selectedTextConcelho,
+                                items:
+                                    _dropDownItemsConcelho.map((String item) {
+                                  return DropdownMenuItem(
+                                      value: item, child: Text(item));
+                                }).toList(),
+                                onChanged: (String? value) {
+                                  setState(() {
+                                    _selectedTextConcelho = value!;
+                                  });
+                                },
+                                icon: const Icon(Icons.arrow_drop_down),
+                                decoration: const InputDecoration(
+                                  labelText: 'Concelho',
+                                  border: OutlineInputBorder(),
+                                ),
+                              )),
                         ),
                       ],
                     ),
                   ),
                 ),
-          
+
                 //############################# COMBO 5
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 30),
                   child: Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        border: Border(bottom: BorderSide(color: Colors.black))),
-                    child: const Row(
+                    decoration: const BoxDecoration(color: Colors.white),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                          child: Text(
-                            'Combo 5 - FREGUESIA',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
+                        Expanded(
+                          child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 3),
+                              child: DropdownButtonFormField(
+                                value: _selectedTextFreguesia,
+                                items:
+                                    _dropDownItemsFreguesia.map((String item) {
+                                  return DropdownMenuItem(
+                                      value: item, child: Text(item));
+                                }).toList(),
+                                onChanged: (String? value) {
+                                  setState(() {
+                                    _selectedTextFreguesia = value!;
+                                  });
+                                },
+                                icon: const Icon(Icons.arrow_drop_down),
+                                decoration: const InputDecoration(
+                                  labelText: 'Freguesia',
+                                  border: OutlineInputBorder(),
+                                ),
+                              )),
                         ),
                       ],
                     ),
@@ -240,28 +302,25 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                 ),
 
                 // ########################################################## FIM DE ITENS A OCULTAR CASO A ZONA DE RESIDÊNCIA NÃO SEJA ESPECIFICADA
-          
-                //############################# COMBO 6 -- PRÉ-FIM 
+
+                //############################# COMBO 6 -- PRÉ-FIM
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 15),
                   child: Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.white),
+                    decoration: const BoxDecoration(color: Colors.white),
                     child: Row(
                       children: [
                         Expanded(
                           child: Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                            child: 
-                            DropdownButtonFormField(
-                              value: _selectedTextTipoDeVaga,
-                              items: _dropDownItemsTipoDeVaga.map((String item)
-                                {
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 0, vertical: 3),
+                              child: DropdownButtonFormField(
+                                value: _selectedTextTipoDeVaga,
+                                items:
+                                    _dropDownItemsTipoDeVaga.map((String item) {
                                   return DropdownMenuItem(
-                                    value: item,
-                                    child: Text(item)
-                                    );
+                                      value: item, child: Text(item));
                                 }).toList(),
                                 onChanged: (String? value) {
                                   setState(() {
@@ -270,88 +329,122 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                                 },
                                 icon: const Icon(Icons.arrow_drop_down),
                                 decoration: const InputDecoration(
-                                  labelText: 'Tipo da Vaga',
+                                  labelText: '(#) Tipo da Vaga',
                                   border: OutlineInputBorder(),
                                 ),
-                              )
-                          ),
+                              )),
                         ),
                       ],
                     ),
                   ),
                 ),
-          
-                //############################# TXT de Observação
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
-                  child: Container(
-                    decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        border: Border(bottom: BorderSide(color: Colors.black))),
-                    child: const Row(
-                      children: [
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                          child: Text(
-                            'TXT de Observação',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-          
+
+                //############################# TXT de Observação // NÃO VOU UTILZAR POIS OS DROP DE DIST, CONCE. E FREGUE. SERÃO OCULTADOS POR PADRÃO
+                // Padding(
+                //   padding:
+                //       const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                //   child: Container(
+                //     decoration: const BoxDecoration(
+                //         color: Colors.grey,
+                //         border:
+                //             Border(bottom: BorderSide(color: Colors.black))),
+                //     child: const Row(
+                //       children: [
+                //         Padding(
+                //           padding:
+                //               EdgeInsets.symmetric(horizontal: 0, vertical: 3),
+                //           child: Text(
+                //             'TXT de Observação',
+                //             style: TextStyle(
+                //                 fontSize: 18,
+                //                 fontStyle: FontStyle.normal,
+                //                 fontWeight: FontWeight.bold,
+                //                 color: Colors.black87),
+                //           ),
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+
                 //############################# Radio BTN
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 15),
                   child: Container(
                     decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        border: Border(bottom: BorderSide(color: Colors.black))),
-                    child: const Row(
+                        color: Colors.white,
+                        border:
+                            Border(bottom: BorderSide(color: Colors.white))),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                          child: Text(
-                            'radio BTN',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 0, vertical: 2),
+                            child: Center(
+                              child: ToggleSwitch(
+                                minWidth: 300.0,
+                                minHeight: 45.0,
+                                initialLabelIndex: 0,
+                                totalSwitches: 2,
+                                activeBgColor: const [Colors.deepOrange],
+                                activeFgColor: Colors.white,
+                                inactiveBgColor: Colors.black38,
+                                inactiveFgColor: Colors.grey[900],
+                                labels: const ['SOMENTE COM VAGAS', 'LISTAR TODAS'],
+                                customTextStyles: const [
+                                  TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold),
+                                ],
+                                onToggle: (index) {
+                                  print('switched to: $index');
+                                },
+                              ),
+                            ),
                           ),
                         ),
                       ],
                     ),
                   ),
                 ),
-          
+
                 //############################# BTN de Pesquisar
                 Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 55),
                   child: Container(
                     decoration: const BoxDecoration(
-                        color: Colors.grey,
-                        border: Border(bottom: BorderSide(color: Colors.black))),
-                    child: const Row(
+                        color: Colors.white,
+                        border:
+                            Border(bottom: BorderSide(color: Colors.white))),
+                    child: Row(
                       children: [
-                        Padding(
-                          padding:
-                              EdgeInsets.symmetric(horizontal: 0, vertical: 3),
-                          child: Text(
-                            'SPACE BTN DE Pesquisar',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 0, vertical: 3),
+                            child: Expanded(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.green,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(
+                                      5), // Set the corner radius
+                                  ),
+                                ),
+                                onPressed: () {},
+                                child: const Text(
+                                  'Pesquisar',
+                                  style: TextStyle(
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ],
