@@ -20,8 +20,18 @@ class SearchStartFormView extends StatefulWidget {
 //Essa Frase aqui abaixo só faz sentido na Web pois seu contexto está na próxima tela projetada para o App.
 //### Para creches da Rede Solidária, só é possível pedir vaga se não houver disponibilidade na Rede Aderente.
 
-//VARIABLES
+//DROPDown VARIABLES
+bool _isDropdownTipoDeVagaEnabled = false;
 bool _isDropdownDistritoEnabled = false;
+bool _isDropdownConcelhoEnabled = false;
+bool _isDropdownFreguesiaEnabled = false;
+
+//ZONA DE RESIDÊNCIA or LOCAL de TRABALHO Found! By the Rest API???
+bool _isZonaDeResidenciaFound = false;
+bool _isLocalDeTrabalhoFound = false;
+
+//SEARCH BUTTON LEVEL ACUMULATOR
+int _searchButtonLevel = 0;
 
 //ITENS LIST da RESPOSTA SOCIAL
 final List<String> _dropDownItemsRespostaSocial = [
@@ -134,7 +144,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
               ]),
             ),
 
-            //############################# COMBO 1
+            //### COMBO 1 - RESPOSTA_SOCIAL Enable OR Disable TIPO DE VAGA ### OK!!!
             Padding(
               padding: const EdgeInsets.only(
                   left: 15, right: 15, bottom: 15, top: 30),
@@ -155,9 +165,10 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                             setState(() {
                               _selectedTextRespostaSocial = value!;
                               if (value == 'Creche') {
-                                _isDropdownDistritoEnabled = true;
-                              } else if(value != 'Creche') {
-                                _isDropdownDistritoEnabled = false;
+                                _isDropdownTipoDeVagaEnabled = true;
+                              } else if (value != 'Creche') {
+                                _isDropdownTipoDeVagaEnabled = false;
+                                //HERE RESET DROPDOWN BUTTON!
                                 _selectedTextTipoDeVaga = 'Selecione uma Opção';
                               }
                             });
@@ -173,7 +184,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
               ),
             ),
 
-            //############################# COMBO 2
+            //### COMBO 2 - LOCALIZAÇÃO Enable OR Disable DISTRITO ### OK!!!
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15, bottom: 20),
               child: Row(
@@ -191,6 +202,18 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                           onChanged: (String? value) {
                             setState(() {
                               _selectedTextLocalizacao = value!;
+                              if (value == 'Outra Localização') {
+                                _isDropdownDistritoEnabled = true;
+                                // AND ENABLE Distrito DropDown AND Perform the API Rest Search
+                              } else if (value != 'Outra Localização') {
+                                _isDropdownDistritoEnabled = false;
+                                _isDropdownConcelhoEnabled = false;
+                                _isDropdownFreguesiaEnabled = false;
+                                //HERE RESET DROPDOWN BUTTON!
+                                _selectedTextDistrito = 'Selecione uma Opção';
+                                _selectedTextConcelho = 'Selecione uma Opção';
+                                _selectedTextFreguesia = 'Selecione uma Opção';
+                              }
                             });
                           },
                           icon: const Icon(Icons.arrow_drop_down),
@@ -206,7 +229,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
 
             // ########################################################## ITENS A OCULTAR CASO A ZONA DE RESIDÊNCIA NÃO SEJA ESPECIFICADA
 
-            //############################# COMBO 3
+            //### COMBO 3 - DISTRITO Enable Concelho!!
             Padding(
               padding: const EdgeInsets.only(
                   left: 15, right: 15, bottom: 15, top: 20),
@@ -222,16 +245,17 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                             return DropdownMenuItem(
                                 value: item, child: Text(item));
                           }).toList(),
-                          onChanged: (String? value) {
-                            setState(() {
-                              _selectedTextTipoDeVaga = value!;
-                            });
-                          },
-                          // onChanged: _isDropdownDistritoEnabled ? (String? value){
-                          //   setState(() {
-                          //     _selectedTextDistrito = value!;
-                          //   });
-                          // }: null,
+                          onChanged: _isDropdownDistritoEnabled
+                              ? (String? value) {
+                                  setState(() {
+                                    _selectedTextDistrito = value!;
+                                    if (value != 'Selecione uma Opção') {
+                                      // ENABLE Conselho DropDown AND Perform the API Rest Search
+                                      _isDropdownConcelhoEnabled = true;
+                                    }
+                                  });
+                                }
+                              : null,
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
                             labelText: 'Distrito',
@@ -243,7 +267,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
               ),
             ),
 
-            //############################# COMBO 4
+            //### COMBO 4 - CONSELHO Enable Freguesia!!
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15),
               child: Row(
@@ -258,12 +282,17 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                             return DropdownMenuItem(
                                 value: item, child: Text(item));
                           }).toList(),
-                          // onChanged: (String? value) {
-                          //   setState(() {
-                          //     _selectedTextConcelho = value!;
-                          //   });
-                          // },
-                          onChanged: null, //##### TODO - START DISABLE
+                          onChanged: _isDropdownConcelhoEnabled
+                              ? (String? value) {
+                                  setState(() {
+                                    _selectedTextConcelho = value!;
+                                    if (value != 'Selecione uma Opção') {
+                                      // ENABLE Freguesia DropDown AND Perform the API Rest Search
+                                      _isDropdownFreguesiaEnabled = true;
+                                    }
+                                  });
+                                }
+                              : null,
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
                             labelText: 'Concelho',
@@ -275,7 +304,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
               ),
             ),
 
-            //############################# COMBO 5
+            //############################# COMBO 5 FREGUESIA
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15, bottom: 20),
               child: Row(
@@ -290,12 +319,13 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                             return DropdownMenuItem(
                                 value: item, child: Text(item));
                           }).toList(),
-                          // onChanged: (String? value) {
-                          //   setState(() {
-                          //     _selectedTextFreguesia = value!;
-                          //   });
-                          // },
-                          onChanged: null, //##### TODO - START DISABLE
+                          onChanged: _isDropdownFreguesiaEnabled
+                              ? (String? value) {
+                                  setState(() {
+                                    _selectedTextFreguesia = value!;
+                                  });
+                                }
+                              : null,
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
                             labelText: 'Freguesia',
@@ -325,7 +355,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                             return DropdownMenuItem(
                                 value: item, child: Text(item));
                           }).toList(),
-                          onChanged: _isDropdownDistritoEnabled
+                          onChanged: _isDropdownTipoDeVagaEnabled
                               ? (String? value) {
                                   setState(() {
                                     _selectedTextTipoDeVaga = value!;
@@ -380,6 +410,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
             ),
 
             //############################# TOGGLE BTN
+            //I STOP HERE!! PUT ALL THIS CODE INSIDE A NEW FUNCTION METHOD?? THINK ABOUT IT!!
             Padding(
               padding: const EdgeInsets.only(
                   left: 15, right: 15, bottom: 15, top: 35),
@@ -397,7 +428,19 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                                 5), // Set the corner radius
                           ),
                         ),
-                        onPressed: null,
+                        //I STOP HERE!! FIND ANOTHER WAY TO ENABLE BUTTON IF ALL DROPDOWN ARE CORRETETD SELECTED
+                        onPressed: _isDropdownTipoDeVagaEnabled ? 
+                                   _isDropdownDistritoEnabled ?
+                                   _isDropdownConcelhoEnabled ?
+                                   _isDropdownFreguesiaEnabled ? () {
+                                      //DO SOMETHING....  
+                                      //WHAT DO IS THE OPTIONS IS ZONA de RESIDÊNCIA OR LOCAL de TRABALHO
+                                    } 
+                                    : null 
+                                    : null 
+                                    : null 
+                                    : null,
+
                         child: const Text(
                           'Pesquisar',
                           style: TextStyle(
