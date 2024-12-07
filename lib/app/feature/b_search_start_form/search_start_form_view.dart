@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
@@ -9,23 +11,26 @@ class SearchStartFormView extends StatefulWidget {
 }
 
 //WARNING MSN!
-//### 
-//### Se as suas localizações de Zona de Residência e Local de Trabalho estiverem desatualizadas ou erradas, 
+//###
+//### Se as suas localizações de Zona de Residência e Local de Trabalho estiverem desatualizadas ou erradas,
 //### favor utilizar a opção Outra Localização (pendente de conprovativo).
-//### 
+//###
 
 //WARNING MSN!
 //Essa Frase aqui abaixo só faz sentido na Web pois seu contexto está na próxima tela projetada para o App.
 //### Para creches da Rede Solidária, só é possível pedir vaga se não houver disponibilidade na Rede Aderente.
 
+//VARIABLES
+bool _isDropdownDistritoEnabled = false;
+
 //ITENS LIST da RESPOSTA SOCIAL
 final List<String> _dropDownItemsRespostaSocial = [
-  'Selecione uma opção',
+  'Selecione uma Opção',
   'Creche',
   'Ama',
   'Asilo',
 ];
-String _selectedTextRespostaSocial = 'Selecione uma opção';
+String _selectedTextRespostaSocial = 'Selecione uma Opção';
 //FIM - ITENS LIST da RESPOSTA SOCIAL
 
 //ITENS LIST da LOCALIZAÇÃO
@@ -33,7 +38,7 @@ final List<String> _dropDownItemsLocalizacao = [
   'Selecione uma Opção',
   'Zona de Residência',
   'Local de Trabalho',
-  'Outra Localização (pendente comprovativo)',
+  'Outra Localização',
 ];
 String _selectedTextLocalizacao = 'Selecione uma Opção';
 //FIM - ITENS LIST da LOCALIZAÇÃO
@@ -99,8 +104,8 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
         ),
         body: Column(
           children: <Widget>[
+            // CABECAÇHO! #############################
             Padding(
-              // CABECAÇHO! #############################
               padding: const EdgeInsets.all(15.0),
               child: Row(children: [
                 Expanded(
@@ -131,7 +136,8 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
 
             //############################# COMBO 1
             Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 30),
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, bottom: 15, top: 30),
               child: Row(
                 children: [
                   Expanded(
@@ -148,11 +154,17 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                           onChanged: (String? value) {
                             setState(() {
                               _selectedTextRespostaSocial = value!;
+                              if (value == 'Creche') {
+                                _isDropdownDistritoEnabled = true;
+                              } else if(value != 'Creche') {
+                                _isDropdownDistritoEnabled = false;
+                                _selectedTextTipoDeVaga = 'Selecione uma Opção';
+                              }
                             });
                           },
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
-                            labelText: '(#) Resposta Social',
+                            labelText: 'Resposta Social',
                             border: OutlineInputBorder(),
                           ),
                         )),
@@ -183,7 +195,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                           },
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
-                            labelText: '(#) Localização',
+                            labelText: 'Localização',
                             border: OutlineInputBorder(),
                           ),
                         )),
@@ -196,7 +208,8 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
 
             //############################# COMBO 3
             Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 20),
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, bottom: 15, top: 20),
               child: Row(
                 children: [
                   Expanded(
@@ -211,12 +224,17 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                           }).toList(),
                           onChanged: (String? value) {
                             setState(() {
-                              _selectedTextDistrito = value!;
+                              _selectedTextTipoDeVaga = value!;
                             });
                           },
+                          // onChanged: _isDropdownDistritoEnabled ? (String? value){
+                          //   setState(() {
+                          //     _selectedTextDistrito = value!;
+                          //   });
+                          // }: null,
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
-                            labelText: '(#) Distrito',
+                            labelText: 'Distrito',
                             border: OutlineInputBorder(),
                           ),
                         )),
@@ -240,11 +258,12 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                             return DropdownMenuItem(
                                 value: item, child: Text(item));
                           }).toList(),
-                          onChanged: (String? value) {
-                            setState(() {
-                              _selectedTextConcelho = value!;
-                            });
-                          },
+                          // onChanged: (String? value) {
+                          //   setState(() {
+                          //     _selectedTextConcelho = value!;
+                          //   });
+                          // },
+                          onChanged: null, //##### TODO - START DISABLE
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
                             labelText: 'Concelho',
@@ -271,11 +290,12 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                             return DropdownMenuItem(
                                 value: item, child: Text(item));
                           }).toList(),
-                          onChanged: (String? value) {
-                            setState(() {
-                              _selectedTextFreguesia = value!;
-                            });
-                          },
+                          // onChanged: (String? value) {
+                          //   setState(() {
+                          //     _selectedTextFreguesia = value!;
+                          //   });
+                          // },
+                          onChanged: null, //##### TODO - START DISABLE
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
                             labelText: 'Freguesia',
@@ -291,9 +311,10 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
 
             //############################# COMBO 6 -- PRÉ-FIM
             Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15, bottom: 15, top: 20),
+              padding: const EdgeInsets.only(
+                  left: 15, right: 15, bottom: 15, top: 20),
               child: Row(
-                children: [
+                children: <Widget>[
                   Expanded(
                     child: Padding(
                         padding: const EdgeInsets.symmetric(
@@ -304,14 +325,16 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                             return DropdownMenuItem(
                                 value: item, child: Text(item));
                           }).toList(),
-                          onChanged: (String? value) {
-                            setState(() {
-                              _selectedTextTipoDeVaga = value!;
-                            });
-                          },
+                          onChanged: _isDropdownDistritoEnabled
+                              ? (String? value) {
+                                  setState(() {
+                                    _selectedTextTipoDeVaga = value!;
+                                  });
+                                }
+                              : null,
                           icon: const Icon(Icons.arrow_drop_down),
                           decoration: const InputDecoration(
-                            labelText: '(#) Tipo da Vaga',
+                            labelText: 'Tipo da Vaga',
                             border: OutlineInputBorder(),
                           ),
                         )),
@@ -374,7 +397,7 @@ class _SearchStartFormViewState extends State<SearchStartFormView> {
                                 5), // Set the corner radius
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: null,
                         child: const Text(
                           'Pesquisar',
                           style: TextStyle(
